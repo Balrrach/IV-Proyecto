@@ -8,5 +8,4 @@ Las restricciones son las siguientes:
 2. Se deben completar todos los pedidos.
 
 ### Documentacion
-Para consultar la documentacion del proyecto visite el enlace [docs](./docs)
-
+Para consultar la documentacion del proyecto visite el siguiente enlace: [docs](./docs).
