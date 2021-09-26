@@ -1,0 +1,7 @@
+Para facilitar el uso y desarrollo de la aplicación se han elaborado los siguientes perfiles de los usuarios finales de la misma:
+
+| **Perfil**                            | **Modo de empleo**                                                                                                                                                                                                                               |
+|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cliente		| Su deseo es poder utilizar la aplicación de la forma más cómoda, eficiente y económica. Esto significa tener acceso a una variedad de diferentes restaurante y obtener información actualizada sobre el estado de su envío.	|
+| Propietario	| Su deseo es vender el mayor numero de productos posible así como tener una clientela satisfecha que sea permanente y a ser posible aumente con el tiempo.	|
+| Repartidor	| Su deseo es poder realizar el mayor numero de entregas posibles disminuyendo para esto la distancia recorrida en el trayecto.	|
