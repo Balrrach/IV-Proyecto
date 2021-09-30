@@ -2,6 +2,7 @@
 Un cliente estándar, en una primera etapa, repitirá sucesivamente los siguientes pasos:
  1. Seleccionar de entre la variedad de restaurantes disponibles uno de ellos
  2. Seleccionar una serie de productos disponibles en el restaurante seleccionario
+
 Posteriormente se mostrará al cliente el tiempo medio de espera, una estimación del tiempo de envío y el precio total del pedido: productos + envio. El precio del envio sera fijo puesto que se entiende que el esfuerzo necesario para realizar el envio es más o menos constante.
 Como salida se producirá un codigo que el usuario podrá utilizar para conocer el estado actual del pedido.
 
