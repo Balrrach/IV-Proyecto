@@ -5,3 +5,5 @@ class Producto {
 
   constructor(nombre: string, peso: number) {}
 }
+
+export { Producto };
