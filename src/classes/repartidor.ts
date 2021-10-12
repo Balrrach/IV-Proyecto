@@ -7,6 +7,8 @@ class Repartidor {
   pedidos_actuales: Pedido[] = [];
 
   constructor(nombre: string) {}
+
+  anadir_pedido(nuevo: Pedido) {}
 }
 
 export { Repartidor };

@@ -13,7 +13,7 @@ class Restaurante {
     // Asegurarse de que el vector es de longitud 0.
   }
 
-  entregar(pedido: Pedido) {}
+  recibir(pedido: Pedido) {}
 }
 
 export { Restaurante };

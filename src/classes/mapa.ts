@@ -8,6 +8,10 @@ class Mapa {
   constructor() {}
 
   anadir_restaurante(nuevo_restaurante: Restaurante) {}
+
+  construir_matrix_distancias() {}
+
+  distancia(res1: Restaurante, res2: Restaurante) {}
 }
 
 export { Mapa };

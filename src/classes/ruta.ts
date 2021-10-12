@@ -9,6 +9,8 @@ class Ruta {
     // FIXME temporal
     return new Restaurante();
   }
+
+  recalcular() {}
 }
 
 export { Ruta };
