@@ -1,8 +1,2 @@
 lenguaje: typescript
 entidad: src/classes/gestor.ts
-entidad: src/classes/mapa.ts
-entidad: src/classes/pedido.ts
-entidad: src/classes/producto.ts
-entidad: src/classes/repartidor.ts
-entidad: src/classes/restaurante.ts
-entidad: src/classes/ruta.ts
