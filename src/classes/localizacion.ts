@@ -13,7 +13,7 @@ class Localizacion {
 
 
 class Restaurante extends Localizacion {
-  nombre = '    ';
+  nombre = '';
 
   pedidos_por_recoger: Pedido[] = [];
 
