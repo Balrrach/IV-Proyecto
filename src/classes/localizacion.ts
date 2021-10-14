@@ -21,6 +21,7 @@ class Restaurante extends Localizacion {
     super(coords)
   }
 
+  preparar_pedido():  {}
   recibir(pedido: Pedido) {}
 }
 
