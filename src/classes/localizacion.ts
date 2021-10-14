@@ -9,6 +9,8 @@ class Localizacion {
     // Asegurarse de que el vector es de longitud 0.
     this.coordenadas = coords
   }
+
+  recibir(pedido: Pedido) {}
 }
 
 
@@ -21,8 +23,10 @@ class Restaurante extends Localizacion {
     super(coords)
   }
 
-  preparar_pedido():  {}
-  recibir(pedido: Pedido) {}
+  preparar_pedido()  {}
+  entregar_pedido(): Pedido {
+    return new Pedido(this, new Localizacion())
+  }
 }
 
 export { Restaurante, Localizacion };
