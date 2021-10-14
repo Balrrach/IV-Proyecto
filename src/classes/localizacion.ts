@@ -3,7 +3,6 @@ import { Pedido } from './pedido';
 
 
 class Localizacion {
-  ID = 0;
   coordenadas: Vector = new Vector([0, 0]);
 
   constructor(coords: Vector = new Vector([0, 0])) {
