@@ -1,5 +1,5 @@
 import { Matrix } from 'ts-matrix';
-import { Restaurante } from './restaurante';
+import { Restaurante } from './localizacion';
 
 class Mapa {
   localizaciones: Restaurante[] = [];

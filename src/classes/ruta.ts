@@ -1,11 +1,11 @@
-import { Restaurante } from './restaurante';
+import { Restaurante, Localizacion } from './localizacion';
 
 class Ruta {
-  destinos: Restaurante[] = [];
+  destinos: Localizacion[] = [];
 
   constructor() {}
 
-  siguiente(): Restaurante {
+  siguiente(): Localizacion {
     // FIXME temporal
     return new Restaurante();
   }

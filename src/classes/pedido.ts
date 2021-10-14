@@ -1,15 +1,15 @@
-import { Restaurante } from './restaurante';
+import { Restaurante, Localizacion } from './localizacion';
 import { Producto } from './producto';
 
 class Pedido {
   ID = 0;
 
-  destino: Restaurante = new Restaurante();
+  destino: Localizacion = new Localizacion();
   origen: Restaurante = new Restaurante();
 
   productos_asociados: Producto[] = [];
 
-  constructor(destino: Restaurante, origen: Restaurante) {}
+  constructor(origen: Restaurante, destino: Localizacion) {}
 }
 
 export { Pedido };
