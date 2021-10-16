@@ -15,7 +15,7 @@ class Localizacion {
 
 
 class Restaurante extends Localizacion {
-  nombre = '';
+  nombre: String = '';
 
   pedidos_por_recoger: Pedido[] = [];
 
