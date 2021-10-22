@@ -23,7 +23,9 @@
     "url": "https://github.com/Balrrach/IV-Proyecto/issues"
   },
   "homepage": "https://github.com/Balrrach/IV-Proyecto#readme",
-  "dependencies": {},
+  "dependencies": {
+    "ts-matrix": "^1.1.0"
+  },
   "devDependencies": {
     "@types/node": "^16.10.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
