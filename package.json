@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Balrrach/IV-Proyecto#readme",
   "dependencies": {
+    "node": "^17.0.1",
     "ts-matrix": "^1.1.0"
   },
   "devDependencies": {
