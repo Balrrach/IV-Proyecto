@@ -24,10 +24,10 @@
   },
   "homepage": "https://github.com/Balrrach/IV-Proyecto#readme",
   "dependencies": {
-    "node": "^17.0.1",
-    "ts-matrix": "^1.1.0"
   },
   "devDependencies": {
+    "node": "^17.0.1",
+    "ts-matrix": "^1.1.0",
     "@types/node": "^16.10.3",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
