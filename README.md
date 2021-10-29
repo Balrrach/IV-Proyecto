@@ -7,5 +7,11 @@ Las restricciones son las siguientes:
 1. No se puede entregar un producto sin antes haberlo recogido.
 2. Se deben completar todos los pedidos.
 
+
 ### Documentacion
 Para consultar la documentacion del proyecto visite el siguiente enlace: [docs](./docs).
+
+
+### Taks
+Las tareas programadas son las siguientes:
+	- npm run check: Se encarga de comprobar la correcion sinatctica del programa completo
