@@ -1,0 +1,35 @@
+{
+  "name": "balrrach_iv",
+  "version": "1.0.0",
+  "description": "Proyecto dedicado a la resolución del \"Problema del Repartidor\" para la asignatura de Infraestructura Virtual",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js",
+    "check": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balrrach/IV-Proyecto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Balrrach/IV-Proyecto/issues"
+  },
+  "homepage": "https://github.com/Balrrach/IV-Proyecto#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "ts-matrix": "^1.1.0",
+    "typescript": "^4.4.3"
+  }
+}

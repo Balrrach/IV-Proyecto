@@ -1,2 +1,6 @@
 lenguaje: typescript
 entidad: src/classes/gestor.ts
+automatizar:
+  fichero: package.json
+  orden: npm run
+

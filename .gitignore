@@ -3,6 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
 
 build
+
 ### Node ###
 # Logs
 logs
@@ -42,7 +43,7 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+build
 
 # Dependency directories
 node_modules/
