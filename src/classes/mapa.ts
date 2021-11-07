@@ -1,9 +1,8 @@
-import { Matrix } from 'ts-matrix';
 import { Restaurante, Localizacion } from './localizacion';
 
 class Mapa {
   localizaciones: Localizacion[] = [];
-  matriz_de_distancias: Matrix = new Matrix(0, 0);
+  matriz_de_distancias:  number[][] = [];
 
   constructor() {}
 

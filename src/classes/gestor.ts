@@ -7,3 +7,5 @@ class Gestor {
 
   constructor() {}
 }
+
+export { Gestor }
