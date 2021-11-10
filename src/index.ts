@@ -1,14 +1,12 @@
-import * as fs from 'fs';
-import{ Gestor } from './classes/gestor';
-import{ Repartidor } from './classes/repartidor';
+import{ Manager } from './classes/manager';
+import{ DeliveryMan } from './classes/delivery_man';
+import { loadLocations } from './classes/location';
 
-console.log('Hello world!');
 
 // Read locations
-function readLocations() {
-	fs.readFileSync('data/locations.txt','utf8');
-}
+loadLocations()
 
-readLocations()
-var gestor = new Gestor
-var repartidor = new Repartidor('Jimmi')
+// Instanciate agents
+let manager = new Manager
+let deliveryMan = new DeliveryMan('Jimmi')
+
