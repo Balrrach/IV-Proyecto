@@ -1,6 +1,6 @@
 import{ Manager } from './classes/manager';
 import{ DeliveryMan } from './classes/delivery_man';
-import { loadLocations } from './classes/location';
+import { loadLocations } from './read_files';
 
 
 // Read locations

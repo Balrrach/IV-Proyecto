@@ -8,8 +8,7 @@ function tryReadFile(fileName: string): string {
 	try {
 		return readFileSync(fileName, 'utf-8');
 	} catch {
-		let message: string = 'File not found: ' + fileName;
-		throw message;
+		throw new Error('File not found ' + fileName);
 	}
 }
 
@@ -17,17 +16,17 @@ function tryParseJson(stringToParse: string) {
 	try {
 		return JSON.parse(stringToParse);
 	} catch {
-		let message: string = ': Failed to parse json file. Invalid format: ' + stringToParse;
-		throw message;
+		throw new Error('Failed to parse string to json');
 	}
 }
+
 
 function loadLocations() {
 	loadRestaurants('./data/restaurants.json');
 }
 
 function loadRestaurants(restaurantsFile: string) {
-	const stringToParse = tryReadFile(restaurantsFile);
+	let stringToParse = tryReadFile(restaurantsFile);
 	let jsonObjectArray = tryParseJson(stringToParse);
 
 	let restaurants: Restaurant[] = []
@@ -47,7 +46,7 @@ function loadRestaurants(restaurantsFile: string) {
 }
 
 
-export { loadLocations }
+export { tryReadFile, tryParseJson, loadLocations }
 
 
 // Restaurants need to be in a correct JSON format in the folder data in
