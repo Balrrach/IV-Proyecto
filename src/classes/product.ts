@@ -12,11 +12,40 @@ class Product {
     return Product.last_ID_generated;
   }
 
+  private processID(ID: number) {
+	  if(ID > 0)
+		  this.ID = ID;
+	  else
+		  throw new Error('ID has to be strictly positive');
+  }
+
+  private processName(name: string) {
+	  if(name.length > 0)
+		  this.name = name;
+	  else
+		  throw new Error('Name can\'t be empty');
+  }
+
+  private processWeight(weight: number) {
+	  if(weight > 0)
+		  this.weight = weight;
+	  else
+		  throw new Error('Weight has to be strictly positive');
+  }
+
+
+  private processPrice(price: number) {
+	  if(price > 0)
+		  this.price = price;
+	  else
+		  throw new Error('Price has to be strictly positive');
+  }
+
   constructor(name: string, weight: number, price: number) {
-	  this.ID = this.generate_new_ID()
-	  this.name = name;
-	  this.weight = weight;
-	  this.price = price;
+	  this.processID(this.generate_new_ID());
+	  this.processName(name);
+	  this.processWeight(weight);
+	  this.processPrice(price);
   }
 
   getID(): number {

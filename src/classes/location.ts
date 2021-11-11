@@ -6,8 +6,15 @@ class Location {
   private coordenates: number[] = [];
 
 
+  private processCoordenates(coordenates: number[]) {
+  	if(coordenates.length == 3)
+		this.coordenates = coordenates;
+	else
+		throw new Error('Locations need to have three components')
+  }
+
   constructor(coordenates: number[] = [0, 0, 0]) {
-    this.coordenates = coordenates
+	  this.processCoordenates(coordenates);
   }
 
   getCoordenates(): number[] {
@@ -17,19 +24,33 @@ class Location {
 
 
 class Restaurant extends Location {
-  private name: String = '';
+  private name: string = '';
   private products: Product[] = []
 
   private orders_ready: number[] = [];
 
 
-  constructor(name = '', coords: number[] = [0, 0, 0], products: Product[] = []) {
-    super(coords);
-    this.name = name;
-    this.products = products;
+  private processName(name: string) {
+	  if(name.length > 0)
+		  this.name = name;
+	  else
+		throw new Error('Restaurants cant have an empty name')
   }
 
-  getName(): String {
+  private processPoducts(products: Product[]) {
+	  if(products.length > 0)
+		  this.products = products;
+	  else
+		  throw new Error('Restaurants need to have, at least, one associated product')
+  }
+
+  constructor(coords: number[] = [0, 0, 0], name = '', products: Product[] = []) {
+    super(coords);
+    this.processName(name);
+    this.processPoducts(products);
+  }
+
+  getName(): string {
 	  return this.name;
   }
 
