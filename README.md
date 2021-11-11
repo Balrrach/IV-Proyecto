@@ -14,6 +14,6 @@ Para consultar la documentacion del proyecto visite el siguiente enlace: [docs](
 
 ### Taks
 Las tareas programadas son las siguientes:
-	- npm start: Compila y ejecuta el programa
+	- npm run start: Compila y ejecuta el programa
 	- npm run check: Comprueba la correccion sintactica del programa completo
-	- npm test: Corre los tests
+	- npm run test: Corre los tests
