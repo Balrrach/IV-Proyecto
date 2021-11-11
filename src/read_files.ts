@@ -21,11 +21,7 @@ function tryParseJson(stringToParse: string) {
 }
 
 
-function loadLocations() {
-	loadRestaurants('./data/restaurants.json');
-}
-
-function loadRestaurants(restaurantsFile: string) {
+function loadRestaurants(restaurantsFile: string): Restaurant[] {
 	let stringToParse = tryReadFile(restaurantsFile);
 	let jsonObjectArray = tryParseJson(stringToParse);
 
@@ -43,11 +39,9 @@ function loadRestaurants(restaurantsFile: string) {
 	}
 
 	console.log(restaurants)
+	return restaurants;
 }
 
 
-export { tryReadFile, tryParseJson, loadLocations }
+export { tryReadFile, tryParseJson, loadRestaurants }
 
-
-// Restaurants need to be in a correct JSON format in the folder data in
-// order to be read
