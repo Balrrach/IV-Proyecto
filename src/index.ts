@@ -5,10 +5,12 @@ import { Restaurant } from './classes/location';
 
 
 // Read locations
-const restaurantsFile = './data/restaurants.json'
-let restaurants: Restaurant[] = loadRestaurants(restaurantsFile)
+const restaurantsFile = './data/restaurants.json';
+let restaurants: Restaurant[] = loadRestaurants(restaurantsFile);
 
 // Instanciate agents
-let manager: Manager = new Manager
-let deliveryMan: DeliveryMan = new DeliveryMan('Jimmi')
+let manager: Manager = new Manager(restaurants);
+let deliveryMan: DeliveryMan = new DeliveryMan('Jimmi');
+manager.addDeliveryMan(deliveryMan);
+manager.listRestaurants();
 

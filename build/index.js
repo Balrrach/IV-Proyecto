@@ -7,5 +7,7 @@ var read_files_1 = require("./read_files");
 var restaurantsFile = './data/restaurants.json';
 var restaurants = (0, read_files_1.loadRestaurants)(restaurantsFile);
 // Instanciate agents
-var manager = new manager_1.Manager;
+var manager = new manager_1.Manager(restaurants);
 var deliveryMan = new delivery_man_1.DeliveryMan('Jimmi');
+manager.addDeliveryMan(deliveryMan);
+manager.listRestaurants();

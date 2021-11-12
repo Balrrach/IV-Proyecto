@@ -38,7 +38,6 @@ function loadRestaurants(restaurantsFile: string): Restaurant[] {
 		restaurants.push(new Restaurant(currentRestaurant['coordenates'], currentRestaurant['name'], products));
 	}
 
-	console.log(restaurants)
 	return restaurants;
 }
 
