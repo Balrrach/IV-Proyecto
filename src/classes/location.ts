@@ -3,18 +3,10 @@ import { Product } from './product';
 
 
 class Location {
-  private coordenates: number[] = [];
+  private coordenates: [number, number, number] = [0, 0, 0];
 
-
-  private processCoordenates(coordenates: number[]) {
-  	if(coordenates.length == 3)
-		this.coordenates = coordenates;
-	else
-		throw new Error('Locations need to have three components')
-  }
-
-  constructor(coordenates: number[] = [0, 0, 0]) {
-	  this.processCoordenates(coordenates);
+  constructor(coordenates: [number, number, number]) {
+	  this.coordenates = coordenates;
   }
 
   getCoordenates(): number[] {
@@ -26,9 +18,7 @@ class Location {
 class Restaurant extends Location {
   private name: string = '';
   private products: Product[] = []
-
   private orders_ready: number[] = [];
-
 
   private processName(name: string) {
 	  if(name.length > 0)
