@@ -8,19 +8,17 @@ class DeliveryMan {
   private ID: number = 0;
   private name: string = '';
   private maximumWeight: number = 100;
+  private coordenates: number[] = [];
   private route: Route = new Route()
-  private orders: Order[] = []
 
   private generate_new_ID(): number {
     DeliveryMan.last_ID_generated++;
     return DeliveryMan.last_ID_generated;
   }
 
-  constructor(name: string, maximumWeight: number = 15000) {}
+  constructor(name: string, maximumWeight: number = 15000, coordenates: number[]) {}
   
 
-  addOrder(order: Order) {}
-  removeOrder(order: Order) {}
   updateRoute(route: Route) {
 	  this.route = route;
 	  this.notify();
