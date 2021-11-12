@@ -34,7 +34,7 @@ class Restaurant extends Location {
 		  throw new Error('Restaurants need to have, at least, one associated product')
   }
 
-  constructor(coords: number[] = [0, 0, 0], name = '', products: Product[] = []) {
+  constructor(coords: [number, number, number], name = '', products: Product[] = []) {
     super(coords);
     this.processName(name);
     this.processPoducts(products);
