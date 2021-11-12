@@ -5,8 +5,7 @@ import { Route } from './route'
 
 
 class RouteCalculator {
-  private allOrders: Order[] = [];
-  private ordersAssigenedToDeliveryMan: [DeliveryMan,[Order]][] = [];
+  private deliveryMen: DeliveryMan[] = [];
 
   constructor() {}
 
@@ -14,15 +13,12 @@ class RouteCalculator {
   addDeliveryMan(deliveryMan: DeliveryMan) {}
   removeDeliveryMan(delivery_man: DeliveryMan) {}
 
-  addOrder(order: Order): [DeliveryMan, Route] {
-	  this.allOrders.push(order);
-	  return this.assignOrderToDeliveryMan(order);
+  addOrder(order: Order) {
+	  return this.recalculateRoutes();
   }
 
+  private recalculateRoutes() {}
   private distance(loc1: Location, loc2: Location) {}
-  private assignOrderToDeliveryMan(order: Order): [DeliveryMan, Route] {
-	  return [new DeliveryMan('tommy', 500), new Route()];
-  }
 }
 
 
