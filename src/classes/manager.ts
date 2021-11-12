@@ -45,12 +45,7 @@ class Manager {
 
 
   addOrder(order: Order) {
-	  let data: [DeliveryMan, Route] = this.routeCalculator.addOrder(order);
-	  this.updateDeliveryManRoute(data);
-  }
-
-  updateDeliveryManRoute(data: [DeliveryMan, Route]) {
-	  data[0].updateRoute(data[1]);
+	  this.routeCalculator.addOrder(order);
   }
 }
 
