@@ -9,7 +9,7 @@ enum State {
 }
 
 class Order {
-  private static last_ID_generated: number = 1
+  private static last_ID_generated: number = 0;
 
   private ID: number = 0;
   private destiny: Location = new Location();
