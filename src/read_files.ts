@@ -1,15 +1,35 @@
 import { Restaurant } from './classes/location'; 
 import { Product } from './classes/product'; 
 import { readFileSync } from 'fs';
-import { match } from 'assert';
+import { resolve } from 'path/posix';
+import { rejects } from 'assert';
 
 
-function tryReadFile(fileName: string): string {
-	try {
-		return readFileSync(fileName, 'utf-8');
-	} catch {
-		throw new Error('File not found ' + fileName);
-	}
+// function tryReadFile(fileName: string): string {
+// 	try {
+// 		return readFileSync(fileName, 'utf-8');
+// 	} catch {
+// 		throw new Error('File not found ' + fileName);
+// 	}
+// }
+// 
+// function tryParseJson(stringToParse: string) {
+// 	try {
+// 		return JSON.parse(stringToParse);
+// 	} catch {
+// 		throw new Error('Failed to parse string to json');
+// 	}
+// }
+
+
+function tryReadFile(fileName: string): Promise<string> {
+	return new Promise<string>((resolve, rejects) => {
+		try {
+			resolve(readFileSync(fileName, 'utf8'));
+		} catch {
+			rejects(Error('File not found ' + fileName));
+		}
+	})
 }
 
 function tryParseJson(stringToParse: string) {
@@ -20,9 +40,8 @@ function tryParseJson(stringToParse: string) {
 	}
 }
 
-
-function loadRestaurants(restaurantsFile: string): Restaurant[] {
-	let stringToParse = tryReadFile(restaurantsFile);
+async function loadRestaurants(restaurantsFile: string): Promise<Restaurant[]> {
+	let stringToParse = await tryReadFile(restaurantsFile);
 	let jsonObjectArray = tryParseJson(stringToParse);
 
 	let restaurants: Restaurant[] = []
@@ -39,6 +58,7 @@ function loadRestaurants(restaurantsFile: string): Restaurant[] {
 	}
 
 	return restaurants;
+	throw new Error('Failed to parse string to json');
 }
 
 
