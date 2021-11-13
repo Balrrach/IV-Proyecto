@@ -1,2 +1,3 @@
-Para la implementación de los tests se ha optado por el uso del framework de tests __mocha__ y la biblioteca de excepciones __chai__. Ambos son muy conocidos y utilizados en el desarrollo de aplicaciones javascript y typescript.
-Los factores que han influído en la toma de esta decision han sido su popularidad, su facilidad de uso y la capacidad del uso de tipos de forma directa en los propios tests.
+Para la implementación de los tests se ha optado por el uso del framework de tests __mocha__, en concreto su version para typescript __ts-mocha__ y la biblioteca de aserciones __chai__. Ambos son muy conocidos y utilizados en el desarrollo de aplicaciones javascript y typescript.
+Los factores que han influído en la toma de esta decision han sido su popularidad, su facilidad de uso, la capacidad de la utilizacion de tipos de forma directa en los propios tests y su flexibilidad.
+Además, __mocha__ esta especialmente diseñado para testear aplicaciones dentro del marco de Node en el desarrollo del backend. Para ello cuenta con caracteristicas que facilitan el testeo de funciones asincronas y librerias que permiten incorporar cualquier funcionalidad deseada.
