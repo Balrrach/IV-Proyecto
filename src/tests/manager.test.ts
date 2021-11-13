@@ -4,7 +4,7 @@ import { Product } from '../classes/product'
 import { Location, Restaurant } from '../classes/location'
 
 
-it('Attempting to remove an unregistered restaurant throws Error', async () => {
+it('Throws Error on unregistered restaurant removal', async () => {
 	let manager: Manager = new Manager;
 	assert.throw(() => { manager.removeRestaurant(new Restaurant([0, 0, 0], 'Pepes', [new Product('Pollo', 1, 1)])) }, Error);
 })

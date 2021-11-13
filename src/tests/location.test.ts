@@ -3,11 +3,11 @@ import { Product } from '../classes/product'
 import { Location, Restaurant } from '../classes/location'
 
 
-it('Attempting to instanciate a restaurant with an empty name throws Error', async () => {
+it('Throws Error on empty name restaurant', async () => {
 	assert.throw(() => { new Restaurant([1, 1, 1], '', [new Product('Pollo', 1, 1)]) }, Error);
 })
 
-it('Attempting to instanciate a restaurant with an empty array of Product throws Error', async () => {
+it('Throws Error on empty products restaurant', async () => {
 	assert.throw(() => { new Restaurant([1, 1, 1], 'Viva la Ensalada', []) }, Error);
 })
 
