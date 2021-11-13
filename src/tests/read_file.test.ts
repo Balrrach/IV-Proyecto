@@ -1,11 +1,15 @@
-import { assert } from 'chai'
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+chai.use(chaiAsPromised);
 import { tryReadFile, tryParseJson } from '../read_files'
+const expect = chai.expect;
+const assert = chai.assert;
 
 
-it('Throws Error on inexistant file reading', async () => {
-	assert.throw(() => { tryReadFile('inexistantFile.txt') }, Error);
+it('Throws Error on inexistant file', async () => {
+	await expect(tryReadFile('inexistantFile.txt')).to.be.rejectedWith(Error);
 })
 
-it('Throws Error on incorrectly formated json string parsing', async () => {
+it('Throws Error on incorrectly formated json string', async () => {
 	assert.throw(() => { tryParseJson('incorrect Json') }, Error);
 })
