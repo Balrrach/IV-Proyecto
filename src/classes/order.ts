@@ -12,8 +12,8 @@ class Order {
   private static last_ID_generated: number = 0;
 
   private ID: number = 0;
-  private destiny: Location = new Location();
-  private origin: Restaurant = new Restaurant();
+  private destiny: Location;
+  private origin: Restaurant;
   private items: number[] = [];
   private state: State = State.preparing;
 
