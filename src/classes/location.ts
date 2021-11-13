@@ -3,14 +3,14 @@ import { Product } from './product';
 
 
 class Location {
-  private coordenates: [number, number, number] = [0, 0, 0];
+  private coordinates: [number, number, number] = [0, 0, 0];
 
-  constructor(coordenates: [number, number, number]) {
-	  this.coordenates = coordenates;
+  constructor(coordinates: [number, number, number]) {
+	  this.coordinates = coordinates;
   }
 
   getCoordenates(): number[] {
-	  return this.coordenates;
+	  return this.coordinates;
   }
 }
 
@@ -34,8 +34,8 @@ class Restaurant extends Location {
 		  throw new Error('Restaurants need to have, at least, one associated product')
   }
 
-  constructor(coords: [number, number, number], name = '', products: Product[] = []) {
-    super(coords);
+  constructor(coordinates: [number, number, number], name = '', products: Product[] = []) {
+    super(coordinates);
     this.processName(name);
     this.processPoducts(products);
   }

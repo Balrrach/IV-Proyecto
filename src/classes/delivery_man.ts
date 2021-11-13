@@ -8,7 +8,7 @@ class DeliveryMan {
   private ID: number = 0;
   private name: string = '';
   private maximumWeight: number = 100;
-  private coordenates: number[] = [];
+  private coordinates: number[] = [];
   private route: Route = new Route()
 
   private generate_new_ID(): number {
@@ -16,7 +16,7 @@ class DeliveryMan {
     return DeliveryMan.last_ID_generated;
   }
 
-  constructor(name: string, maximumWeight: number = 15000, coordenates: number[]) {}
+  constructor(name: string, maximumWeight: number = 15000, coordinates: number[]) {}
   
 
   updateRoute(route: Route) {
