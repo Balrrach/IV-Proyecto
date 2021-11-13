@@ -10,7 +10,7 @@ let restaurants: Restaurant[] = loadRestaurants(restaurantsFile);
 
 // Instanciate agents
 let manager: Manager = new Manager(restaurants);
-let deliveryMan: DeliveryMan = new DeliveryMan('Jimmi');
+let deliveryMan: DeliveryMan = new DeliveryMan('Jimmi', [0, 0, 0]);
 manager.addDeliveryMan(deliveryMan);
 manager.listRestaurants();
 

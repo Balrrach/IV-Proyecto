@@ -16,7 +16,7 @@ class DeliveryMan {
     return DeliveryMan.last_ID_generated;
   }
 
-  constructor(name: string, maximumWeight: number = 15000, coordinates: number[]) {}
+  constructor(name: string, coordinates: number[], maximumWeight: number = 15000) {}
   
 
   updateRoute(route: Route) {
