@@ -3,7 +3,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
 
 build/
-src/test/*.js
 
 ### Node ###
 # Logs
