@@ -2,12 +2,6 @@ import { Restaurant, Location } from './location';
 import { Product } from './product';
 
 
-enum State {
-	preparing,
-	onTheWay,
-	delivered,
-}
-
 class Order {
   private static last_ID_generated: number = 0;
 
@@ -15,7 +9,6 @@ class Order {
   private destiny: Location;
   private origin: Restaurant;
   private items: number[] = [];
-  private state: State = State.preparing;
 
 
   private generate_new_ID(): number {
@@ -28,7 +21,6 @@ class Order {
 	  this.origin = origin;
 	  this.destiny = destiny;
 	  this.items = items;
-	  this.state = State.preparing;
   }
 
 
