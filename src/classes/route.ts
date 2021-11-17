@@ -6,11 +6,17 @@ class Route {
   private destinations: Location[] = [];
   private orders: Order[] = [];
 
-  constructor() {}
-
+  constructor(destinations: Location[] = [], orders: Order[] = []) {
+	  this.destinations = destinations;
+	  this.orders = orders;
+  }
 
   getDestinations(): Location[] {
 	  return this.destinations;
+  }
+
+  getOrders(): Order[] {
+	  return this.orders;
   }
 
 
