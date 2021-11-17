@@ -7,13 +7,14 @@ import { Route } from './route'
 class RouteCalculator {
   private deliveryMen: DeliveryMan[] = [];
 
+
   constructor() {}
 
 
   addDeliveryMan(deliveryMan: DeliveryMan) {}
   removeDeliveryMan(delivery_man: DeliveryMan) {}
 
-  addOrder(order: Order) {
+  addOrders(orders: Order[]) {
 	  return this.recalculateRoutes();
   }
 
