@@ -1,3 +1,8 @@
+enum State {
+	preparing,
+	ready,
+}
+
 class Product {
   private static last_ID_generated: number = 0
 
@@ -5,6 +10,7 @@ class Product {
   private name: String = '';
   private weight: number = 0;
   private price: number = 0;
+  private state: State = State.preparing;
 
 
   private generate_new_ID(): number {
@@ -46,6 +52,7 @@ class Product {
 	  this.processName(name);
 	  this.processWeight(weight);
 	  this.processPrice(price);
+	  this.state = State.preparing;
   }
 
   getID(): number {
