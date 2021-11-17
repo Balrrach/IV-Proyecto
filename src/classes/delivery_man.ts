@@ -7,16 +7,27 @@ class DeliveryMan {
 
   private ID: number = 0;
   private name: string = '';
-  private maximumWeight: number = 100;
-  private coordinates: number[] = [];
-  private route: Route = new Route()
+  private maximumWeight: number;
+  private coordinates: [number, number, number];
+  private route: Route = new Route();
 
   private generate_new_ID(): number {
     DeliveryMan.last_ID_generated++;
     return DeliveryMan.last_ID_generated;
   }
 
-  constructor(name: string, coordinates: number[], maximumWeight: number = 15000) {}
+  private processName(name: string) {
+	  if(name.length > 0)
+		  this.name = name;
+	  else
+		  throw new Error('Name can\'t be empty');
+  }
+
+  constructor(name: string, coordinates: [number, number, number], maximumWeight: number = 15000) {
+	  this.processName(name);
+	  this.coordinates = coordinates;
+	  this.maximumWeight = maximumWeight;
+  }
   
 
   updateRoute(route: Route) {
