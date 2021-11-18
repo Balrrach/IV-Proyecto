@@ -19,7 +19,16 @@ class RouteCalculator {
   }
 
   private recalculateRoutes() {}
-  private distance(loc1: Location, loc2: Location) {}
+  private distance(loc1: Location, loc2: Location) {
+	  let coor1 = loc1.getCoordinates();
+	  let coor2 = loc2.getCoordinates();
+	  let result = 0;
+
+	  coor1.forEach((element, index) => {
+		  result += (coor1[index] - coor2[index])**2;
+	  })
+	  return result;
+  }
 }
 
 
