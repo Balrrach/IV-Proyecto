@@ -44,8 +44,8 @@ class Manager {
   deliveryManPicksUpProduct(productID: number) {}
 
 
-  addOrder(order: Order) {
-	  this.routeCalculator.addOrder(order);
+  addOrder(orders: Order[]) {
+	  this.routeCalculator.addOrders(orders);
   }
 }
 
