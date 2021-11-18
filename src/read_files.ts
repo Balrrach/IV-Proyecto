@@ -5,23 +5,6 @@ import { resolve } from 'path/posix';
 import { rejects } from 'assert';
 
 
-// function tryReadFile(fileName: string): string {
-// 	try {
-// 		return readFileSync(fileName, 'utf-8');
-// 	} catch {
-// 		throw new Error('File not found ' + fileName);
-// 	}
-// }
-// 
-// function tryParseJson(stringToParse: string) {
-// 	try {
-// 		return JSON.parse(stringToParse);
-// 	} catch {
-// 		throw new Error('Failed to parse string to json');
-// 	}
-// }
-
-
 function tryReadFile(fileName: string): Promise<string> {
 	return new Promise<string>((resolve, rejects) => {
 		try {
