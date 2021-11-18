@@ -9,7 +9,7 @@ class Location {
 	  this.coordinates = coordinates;
   }
 
-  getCoordenates(): number[] {
+  getCoordinates(): number[] {
 	  return this.coordinates;
   }
 }
