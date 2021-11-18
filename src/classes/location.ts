@@ -53,7 +53,7 @@ class Restaurant extends Location {
   }
 
 
-  recieve(order: number) {}
+  receive(order: number) {}
   prepare_order()  {}
   hand_order(id: number): boolean {
 	this.orders_ready.forEach( (order) => {
