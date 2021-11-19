@@ -34,7 +34,7 @@ jobs:
   build-container:
     runs-on: ubuntu-latest
     needs: dockerfile-changes
-    if: needs.dockerfile-changes.outputs.ha_cambiado
+    if: needs.dockerfile-changes.outputs.ha_cambiado == true
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
