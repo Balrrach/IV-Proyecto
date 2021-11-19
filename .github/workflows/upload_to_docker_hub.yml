@@ -49,8 +49,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: balrrach/iv-proyecto
-          # images: balrrach/instant-eat
+          images: balrrach/instant-eat
       - name: build y push
         uses: docker/build-push-action@v2
         with:
@@ -58,4 +57,4 @@ jobs:
           push: true
           tags: latest
           # tags: ${{  steps.meta.outputs.tags  }}
-          # labels: ${{  steps.meta.output.labels  }}
+          labels: ${{  steps.meta.output.labels  }}
