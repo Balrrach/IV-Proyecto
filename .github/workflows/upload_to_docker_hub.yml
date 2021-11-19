@@ -25,7 +25,7 @@ jobs:
         id: set_output
         if: |
           contains(steps.changed-files.outputs.modified_files, 'Dockerfile') ||
-          contains(steps.changed-files.outputs.modified_files, 'pyproject.toml')
+          contains(steps.changed-files.outputs.modified_files, 'package.json')
         run: "::set-output name=ha_cambiado::true"
 
   build-container:
