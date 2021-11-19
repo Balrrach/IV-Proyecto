@@ -1,8 +1,8 @@
 import { expect } from 'chai'
 import rewire from "rewire";
-const rewiredModule = rewire("../classes/route_calculator");
+const rewiredModule = rewire("../src/classes/route_calculator");
 const rewiredRouteCalculator = rewiredModule.__get__("RouteCalculator")
-import { Location } from '../classes/location'
+import { Location } from '../src/classes/location'
 
 
 const myinstance = new rewiredRouteCalculator()

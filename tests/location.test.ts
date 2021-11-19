@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import { Product } from '../classes/product'
-import { Location, Restaurant } from '../classes/location'
+import { Product } from '../src/classes/product'
+import { Restaurant } from '../src/classes/restaurant'
 
 
 it('Throws Error on empty name restaurant', () => {

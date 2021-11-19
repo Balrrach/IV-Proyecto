@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 chai.use(chaiAsPromised);
-import { tryReadFile, tryParseJson } from '../read_files'
+import { tryReadFile, tryParseJson } from '../src/read_files'
 const expect = chai.expect;
 const assert = chai.assert;
 

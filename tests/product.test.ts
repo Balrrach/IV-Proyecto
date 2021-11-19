@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import { Product } from '../classes/product'
+import { Product } from '../src/classes/product'
 
 
 it('Throws Error on empty name product instanciation', () => {

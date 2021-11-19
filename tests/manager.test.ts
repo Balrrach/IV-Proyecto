@@ -1,7 +1,7 @@
 import { assert } from 'chai'
-import { Manager } from '../classes/manager'
-import { Product } from '../classes/product'
-import { Location, Restaurant } from '../classes/location'
+import { Manager } from '../src/classes/manager'
+import { Product } from '../src/classes/product'
+import { Restaurant } from '../src/classes/restaurant'
 
 
 it('Throws Error on unregistered restaurant removal', () => {
