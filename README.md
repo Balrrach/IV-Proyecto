@@ -14,4 +14,9 @@ Para consultar la documentacion del proyecto visite el siguiente enlace: [docs](
 
 ### Taks
 Las tareas programadas son las siguientes:
-	- npm run check: Se encarga de comprobar la correcion sinatctica del programa completo
+ - npm run start: Compila y ejecuta el programa
+ - npm run check: Comprueba la correccion sintactica del programa completo
+ - npm run test: Corre los tests
+
+
+Las clases testeadas son las unicas para las que hay implementada una logica de negocio hasta el momento, esto es; Location, Restaurant y Product.
