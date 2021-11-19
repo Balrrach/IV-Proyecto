@@ -23,6 +23,7 @@ RUN apk add --update \
 	    && mkdir "$WORKDIR" \
 	    && chown -R "$USER":"$GROUP" "$WORKDIR"
 
+# Change to non root user and copy config files
 USER "$USER"
 WORKDIR "$WORKDIR"
 COPY package.json "$WORKDIR"
