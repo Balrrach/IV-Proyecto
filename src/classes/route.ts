@@ -21,7 +21,7 @@ class Route {
   }
 
 
-  next(): Location {
+  getNextDestination(): Location {
 	return this.destinations[0];
   }
 
