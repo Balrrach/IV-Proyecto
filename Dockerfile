@@ -1,0 +1,33 @@
+# Load base image
+FROM node:alpine
+
+# Variables
+ENV USER=docker
+ENV GROUP=docker
+ENV UID=12345
+ENV GID=23456
+ENV WORKDIR=/app
+
+# Update image, create a user and its group and create application directory
+RUN apk add --update \
+	    && apk upgrade --available \
+	    && addgroup "$GROUP" \
+	    && adduser \
+	    --disabled-password \
+	    --gecos "" \
+	    --home "$(pwd)" \
+	    --ingroup "$USER" \
+	    --no-create-home \
+	    --uid "$UID" \
+	    "$USER" \
+	    && mkdir "$WORKDIR" \
+	    && chown -R "$USER":"$GROUP" "$WORKDIR"
+
+USER "$USER"
+WORKDIR "$WORKDIR"
+COPY package.json "$WORKDIR"
+COPY tsconfig.json "$WORKDIR"
+
+# Build app and test it
+RUN npm install --cache="$WORKDIR"
+CMD ["npm", "run", "test"]
