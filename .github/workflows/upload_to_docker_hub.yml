@@ -46,7 +46,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: Balrrach/IV-Proyecto
+          images: balrrach/instant-eat
 
       - name: build y push
         uses: docker/build-push-action@v2
