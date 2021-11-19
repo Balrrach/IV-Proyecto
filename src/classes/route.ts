@@ -1,4 +1,5 @@
-import { Restaurant, Location } from './location';
+import { Location } from './location';
+import { Restaurant } from './restaurant';
 import { Order } from './order'
 
 

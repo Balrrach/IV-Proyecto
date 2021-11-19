@@ -1,7 +1,7 @@
 import{ Manager } from './classes/manager';
 import{ DeliveryMan } from './classes/delivery_man';
 import { loadRestaurants } from './read_files';
-import { Restaurant } from './classes/location';
+import { Restaurant } from './classes/restaurant';
 
 
 // Read locations

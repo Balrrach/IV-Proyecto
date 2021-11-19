@@ -1,5 +1,6 @@
 import { DeliveryMan } from './delivery_man';
-import { Restaurant, Location } from './location';
+import { Location } from './location';
+import { Restaurant } from './restaurant';
 import { Order } from './order';
 import { Route } from './route'
 

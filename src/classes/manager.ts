@@ -1,5 +1,5 @@
 import { RouteCalculator } from './route_calculator';
-import { Restaurant } from './location';
+import { Restaurant } from './restaurant';
 import { Order } from './order';
 import { Route } from './route';
 import { DeliveryMan } from './delivery_man';

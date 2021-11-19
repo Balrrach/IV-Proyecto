@@ -1,4 +1,4 @@
-import { Restaurant } from './classes/location'; 
+import { Restaurant } from './classes/restaurant'; 
 import { Product } from './classes/product'; 
 import { readFileSync } from 'fs';
 import { resolve } from 'path/posix';
