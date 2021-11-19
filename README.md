@@ -20,3 +20,8 @@ Las tareas programadas son las siguientes:
 
 
 Las clases testeadas son las unicas para las que hay implementada una logica de negocio hasta el momento, esto es; Location, Restaurant y Product.
+
+### Docker
+Para construir la imagen a partir del dockerfile se puede usar la siguiente orden: `docker build . -t iv`.
+
+Para correr la imagen es necesario montar los directorios y se puede usar: `docker run -t -v "`pwd`:/app" iv`.
