@@ -8,7 +8,7 @@ class Order {
 
   private ID: number = 0;
   private destiny: Location;
-  private origin: Restaurant;
+  private origin: [ID: number, Restaurant:Location][];
   private items: number[] = [];
 
 
@@ -17,7 +17,7 @@ class Order {
     return Order.last_ID_generated;
   }
 
-  constructor(origin: Restaurant, destiny: Location, items: number[]) {
+  constructor(origin: [ID: number, Restaurant:Location][], destiny: Location, items: number[]) {
 	  this.generate_new_ID();
 	  this.origin = origin;
 	  this.destiny = destiny;
@@ -33,7 +33,7 @@ class Order {
 	  return this.destiny;
   }
 
-  getOrigin(): Restaurant {
+  getOrigin(): [ID: number, Restaurant:Location][] {
 	  return this.origin;
   }
 
