@@ -27,7 +27,6 @@ RUN apk add --update \
 USER "$USER"
 WORKDIR "$WORKDIR"
 COPY package.json "$WORKDIR"
-COPY tsconfig.json "$WORKDIR"
 
 # Build app and test it
 RUN npm install --cache="$WORKDIR"
