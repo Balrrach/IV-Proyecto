@@ -29,7 +29,7 @@ jobs:
         if: |
           contains(steps.changed-files.outputs.modified_files, 'Dockerfile') ||
           contains(steps.changed-files.outputs.modified_files, 'package.json')
-        run: "::set-output name=ha_cambiado::true"
+        run: echo '::set-output name=ha_cambiado::true'
 
   build-container:
     runs-on: ubuntu-latest
