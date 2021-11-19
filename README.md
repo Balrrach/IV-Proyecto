@@ -24,4 +24,4 @@ Las clases testeadas son las unicas para las que hay implementada una logica de 
 ### Docker
 Para construir la imagen a partir del dockerfile se puede usar la siguiente orden: `docker build . -t iv`.
 
-Para correr la imagen es necesario montar los directorios y se puede usar: `docker run -t -v "`pwd`:/app" iv`.
+Para correr la imagen es necesario montar los directorios y se puede usar: ``docker run -t -v 'pwd':/app iv``.
