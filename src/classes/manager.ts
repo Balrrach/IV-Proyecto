@@ -28,8 +28,8 @@ class Manager {
 		  throw new Error('Tried to delete inexistant restaurant');
   }
 
-  listRestaurants() {
-	  console.log(this.restaurants);
+  async listRestaurants() {
+	await console.log(this.restaurants);
   }
 
 
