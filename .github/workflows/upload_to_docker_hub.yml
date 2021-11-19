@@ -1,4 +1,4 @@
-name: Publicar a Dockerhub
+name: Update DockerHub image
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
   dockerfile-changes:
     runs-on: ubuntu-latest
     outputs:
-      ha_cambiado: ${{ steps.set_output.outputs.si }}
+      update: ${{ steps.set-output.outputs.has_changed }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,16 +25,16 @@ jobs:
         uses: tj-actions/changed-files@v1.2.0
 
       - name: Dockerfile o requerimientos han cambiado
-        id: set_output
+        id: set-output
         if: |
           contains(steps.changed-files.outputs.modified_files, 'Dockerfile') ||
           contains(steps.changed-files.outputs.modified_files, 'package.json')
-        run: echo '::set-output name=ha_cambiado::true'
+        run: echo '::set-output name=has_changed::true'
 
   build-container:
     runs-on: ubuntu-latest
     needs: dockerfile-changes
-    if: needs.dockerfile-changes.steps.set_output.outputs.ha_cambiado == true
+    if: needs.dockerfile-changes.outputs.update
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
