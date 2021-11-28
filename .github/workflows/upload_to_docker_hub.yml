@@ -57,5 +57,4 @@ jobs:
           context: .
           push: true
           tags: balrrach/instant-eat:latest
-          # tags: ${{  steps.meta.outputs.tags  }}
           labels: ${{  steps.meta.output.labels  }}
