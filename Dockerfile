@@ -6,7 +6,7 @@ ENV USER=docker
 ENV GROUP=docker
 ENV UID=12345
 ENV GID=23456
-ENV WORKDIR=/app/test
+ENV WORKDIR=/app
 
 # Update image, create a user and its group and create application directory
 RUN apk add --update \
@@ -20,8 +20,8 @@ RUN apk add --update \
 	    --no-create-home \
 	    --uid "$UID" \
 	    "$USER" \
-	    && mkdir "/app" \
 	    && mkdir "$WORKDIR" \
+	    && mkdir "$WORKDIR/app" \
 	    && chown -R "$USER":"$GROUP" "$WORKDIR"
 
 # Change to non root user and copy config files
