@@ -1,4 +1,4 @@
-name: Update DockerHub image
+name: Update Master DockerHub Container
 on:
   push:
     branches:
