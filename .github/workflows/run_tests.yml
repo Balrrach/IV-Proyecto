@@ -21,5 +21,5 @@ jobs:
         env:
           CONTAINER: ${{ steps.meta.outputs.tags }}
         # run: docker run -t -v `pwd`:/app/test ${CONTAINER,,}
-        # run: docker run -t -v "`pwd`:/app/test" "${CONTAINER}"
-        run: echo "${CONTAINER}"
+        run: docker run -t -v "`pwd`:/app/test" "${CONTAINER}"
+        # run: echo "${CONTAINER}"
