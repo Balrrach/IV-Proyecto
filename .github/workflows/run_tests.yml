@@ -21,5 +21,6 @@ jobs:
           images: balrrach/instant-eat
       - name: Run tests in the container
         env:
-          CONTAINER: ${{ steps.meta.output.labels }}
-        run: docker run -t -v `pwd`:/app/test ${CONTAINER,,}
+          CONTAINER: ${{ steps.meta.outputs.labels }}
+        # run: docker run -t -v `pwd`:/app/test ${CONTAINER,,}
+        run: docker run -t -v `pwd`:/app/test ${CONTAINER}
