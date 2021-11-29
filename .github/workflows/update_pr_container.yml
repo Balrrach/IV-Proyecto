@@ -29,7 +29,8 @@ jobs:
   build-container:
     runs-on: ubuntu-latest
     needs: dockerfile-changes
-    if: needs.dockerfile-changes.outputs.update
+    # if: needs.dockerfile-changes.outputs.update
+    if: false
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
