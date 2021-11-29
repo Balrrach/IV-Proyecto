@@ -21,7 +21,7 @@ RUN apk add --update \
 	    --uid "$UID" \
 	    "$USER" \
 	    && mkdir "$WORKDIR" \
-	    && mkdir "$WORKDIR/app" \
+	    && mkdir "$WORKDIR/test" \
 	    && chown -R "$USER":"$GROUP" "$WORKDIR"
 
 # Change to non root user and copy config files
@@ -31,4 +31,5 @@ COPY package.json tsconfig.json "$WORKDIR"/
 
 # Build app and test it
 RUN npm install --cache="$WORKDIR"
+WORKDIR "$WORKDIR/test"
 CMD ["npm", "run", "test"]
