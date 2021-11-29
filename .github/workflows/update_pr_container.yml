@@ -1,7 +1,7 @@
-name: Update Non-Master DockerHub Container
+name: Update PR Container
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - 'main'
 
 jobs:
