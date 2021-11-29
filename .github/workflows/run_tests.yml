@@ -24,4 +24,4 @@ jobs:
           CONTAINER: ${{ steps.meta.outputs.labels }}
         # run: docker run -t -v `pwd`:/app/test ${CONTAINER,,}
         run: echo ${CONTAINER}
-        run: docker run -t -v "`pwd`:/app/test" ${CONTAINER}
+        # run: docker run -t -v "`pwd`:/app/test" ${CONTAINER}

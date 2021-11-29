@@ -33,7 +33,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        run:  echo ${ needs.dockerfile-changes.outputs.update }
+
+      - name: Check dockerfile
+        run: echo ${ needs.dockerfile-changes.outputs.update }
 
       - name: Login en Dockerhub
         uses: docker/login-action@v1
