@@ -1,10 +1,8 @@
 name: Update Non-Master DockerHub Container
 on:
   push:
-    branches:
-      - '**'        # matches every branch
     branches-ignore:
-      - 'main'      # excludes master
+      - 'main'
 
 jobs:
   dockerfile-changes:
