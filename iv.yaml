@@ -4,4 +4,3 @@ automatizar:
   fichero: package.json
   orden: npm run
 test: src/tests/location.test.ts
-
