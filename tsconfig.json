@@ -11,9 +11,6 @@
     "rootDir": "src",                                    /* Specify the root folder within your source files. */
     "resolveJsonModule": true,
 
-    /* Sources */
-    "rootDir": "src",
-
     /* Emit */
     "outDir": "build",                                   /* Specify an output folder for all emitted files. */
 
@@ -32,6 +29,7 @@
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
+  /* Sources to include */
   "include": [
 	  "src"
   ],

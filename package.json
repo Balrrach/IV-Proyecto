@@ -1,13 +1,14 @@
 {
-  "name": "balrrach_iv",
+  "name": "Instant Eat",
   "version": "1.0.0",
   "description": "Proyecto dedicado a la resolución del \"Problema del Repartidor\" para la asignatura de Infraestructura Virtual",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register ./tests/**/*.test.ts",
-    "testeo": "mocha",
-    "build": "rimraf ./build && tsc",
+    "test": "mocha -r ts-node/register ./test/**/*.test.ts",
+    "build": "rm -dr ./build && tsc",
     "start": "npm run build && node build/index.js",
+    "docker-build": "docker build . -t instant-eat",
+    "docker-start": "docker run -t -v \"`pwd`:/app/test\" instant-eat",
     "check": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
