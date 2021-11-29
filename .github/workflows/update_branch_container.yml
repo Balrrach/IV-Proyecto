@@ -4,7 +4,7 @@ on:
     branches:
       - '**'        # matches every branch
     branches-ignore:
-      - 'main'     # excludes master
+      - 'main'      # excludes master
 
 jobs:
   dockerfile-changes:
