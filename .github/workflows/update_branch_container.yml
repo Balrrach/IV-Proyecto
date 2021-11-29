@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - '**'        # matches every branch
-      - '!main'     # excludes master
+    branches-ignore:
+      - 'main'     # excludes master
 
 jobs:
   dockerfile-changes:
