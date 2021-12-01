@@ -10,7 +10,7 @@ jobs:
 
   compile_latest:
       docker:
-        - image: node/node:latest
+        - image: node:latest
       steps:
         - checkout
         - run: npm run check
