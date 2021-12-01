@@ -6,10 +6,17 @@ jobs:
           image: ubuntu-2004:202111-01
       steps:
         - checkout
-        # - run: docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
         - run: docker run -t -v `pwd`:/app/test balrrach/instant-eat:latest
+
+jobs:
+  compile_latest:
+      docker:
+        image: node/node:latest
+      steps:
+        - checkout
+        - run: npm run check
 
 workflows:
   ci:
     jobs:
-      - run_tests
+      - compile_latest
