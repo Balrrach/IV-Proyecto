@@ -1,13 +1,6 @@
 version: 2.1
 
 jobs:
-  run_tests:
-      machine:
-        image: ubuntu-2004:202111-01
-      steps:
-        - checkout
-        - run: docker run -t -v `pwd`:/app/test balrrach/instant-eat:latest
-
   compile_stable:
       docker:
         - image: node:latest
