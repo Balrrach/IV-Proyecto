@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  run_tests:
+      machine:
+          image: ubuntu-2004:202111-01
+      steps:
+        - checkout
+        # - run: docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
+        - run: docker run -t -v `pwd`:/app/test balrrach/instant-eat:latest
+
+workflows:
+  ci:
+    jobs:
+      - run_tests
