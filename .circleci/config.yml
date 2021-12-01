@@ -33,7 +33,7 @@ jobs:
         - run: npm run check
 
 workflows:
-  ci:
+  check-versions:
     jobs:
       - compile_stable
       - compile_latest
