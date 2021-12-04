@@ -17,9 +17,9 @@ jobs:
 
       - name: Comprobar qué archivos han cambiado
         id: changed-files
-        uses: tj-actions/changed-files@v11.8
+        uses: tj-actions/changed-files@v11.4
         with:
-          fetch-depth: 0
+          # fetch-depth: 0
           since_last_remote_commit: 'true'
 
       - name: Dockerfile o requerimientos han cambiado
