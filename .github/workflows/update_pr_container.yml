@@ -26,12 +26,12 @@ jobs:
         if: |
           contains(steps.changed-files.outputs.modified_files, 'Dockerfile') ||
           contains(steps.changed-files.outputs.modified_files, 'package.json')
-        # run: echo '::set-output name=has_changed::true'
+        run: echo '::set-output name=has_changed::true'
         # run: echo ${{ contains(steps.changed-files.outputs.modified_files, 'package.json') }}
-        run: |
-          for file in ${{ steps.changed-files.outputs.modified_files }}; do
-            echo "$file was added"
-          done
+        # run: |
+        #   for file in ${{ steps.changed-files.outputs.modified_files }}; do
+        #     echo "$file was added"
+        #   done
 
   build-container:
     runs-on: ubuntu-latest
