@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  compile_stable:
+      docker:
+        - image: node:latest
+      steps:
+        - checkout
+        - run: npm install typescript
+        - run: npm run check
+
+  compile_latest:
+      docker:
+        - image: node:latest
+      steps:
+        - checkout
+        - run: npm install typescript@next
+        - run: npm run check
+
+  compile_minimum:
+      docker:
+        - image: node:latest
+      steps:
+        - checkout
+        - run: npm install typescript@4.0.5
+        - run: npm run check
+
+workflows:
+  check-versions:
+    jobs:
+      - compile_stable
+      - compile_latest
+      - compile_minimum

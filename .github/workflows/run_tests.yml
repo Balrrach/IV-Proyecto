@@ -1,0 +1,23 @@
+name: Run Tests
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Get PR metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: balrrach/instant-eat
+      - name: Run tests in the container
+        env:
+          CONTAINER: ${{ steps.meta.outputs.tags }}
+        run: docker run -t -v "`pwd`:/app/test" "${CONTAINER}"

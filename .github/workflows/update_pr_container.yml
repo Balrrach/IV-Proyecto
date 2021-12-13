@@ -1,13 +1,11 @@
-name: Update Non-Master DockerHub Container
+name: Update PR Container
 on:
-  push:
+  pull_request:
     branches:
-      - '**'        # matches every branch
-    branches-ignore:
-      - 'main'      # excludes master
+      - 'main'
 
 jobs:
-  dockerfile-changes:
+  check-changes:
     runs-on: ubuntu-latest
     outputs:
       update: ${{ steps.set-output.outputs.has_changed }}
@@ -19,9 +17,11 @@ jobs:
 
       - name: Comprobar qué archivos han cambiado
         id: changed-files
-        uses: tj-actions/changed-files@v1.2.0
+        uses: tj-actions/changed-files@v11.9
+        with:
+          since_last_remote_commit: 'true'
 
-      - name: Dockerfile o requerimientos han cambiado
+      - name: Comprobar si el Dockerfile o las dependencias han cambiado
         id: set-output
         if: |
           contains(steps.changed-files.outputs.modified_files, 'Dockerfile') ||
@@ -30,8 +30,8 @@ jobs:
 
   build-container:
     runs-on: ubuntu-latest
-    needs: dockerfile-changes
-    if: needs.dockerfile-changes.outputs.update
+    needs: check-changes
+    if: needs.ckeck-changes.outputs.update
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -53,5 +53,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{  steps.meta.output.labels  }}
-          labels: ${{  steps.meta.output.labels  }}
+          tags: ${{  steps.meta.outputs.tags  }}
+          labels: ${{  steps.meta.outputs.labels  }}
