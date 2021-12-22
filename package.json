@@ -1,12 +1,14 @@
 {
-  "name": "balrrach_iv",
+  "name": "Instant Eat",
   "version": "1.0.0",
   "description": "Proyecto dedicado a la resolución del \"Problema del Repartidor\" para la asignatura de Infraestructura Virtual",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "build": "rimraf ./build && tsc",
+    "test": "mocha -r ts-node/register ./test/**/*.test.ts",
+    "build": "rm -dr ./build && tsc",
     "start": "npm run build && node build/index.js",
+    "docker-build": "docker build . -t instant-eat",
+    "docker-start": "docker run -t -v \"`pwd`:/app/test\" instant-eat",
     "check": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
@@ -23,13 +25,21 @@
   },
   "homepage": "https://github.com/Balrrach/IV-Proyecto#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/chai-as-promised": "^7.1.4",
+    "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.6",
+    "@types/rewire": "^2.5.28",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^9.1.3",
     "prettier": "^2.4.1",
+    "rewire": "^5.0.0",
     "rimraf": "^3.0.2",
-    "ts-matrix": "^1.1.0",
+    "ts-node": "^10.4.0",
     "typescript": "^4.4.3"
   }
 }

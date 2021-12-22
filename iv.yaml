@@ -3,4 +3,5 @@ entidad: src/classes/gestor.ts
 automatizar:
   fichero: package.json
   orden: npm run
+test: src/tests/location.test.ts
 
