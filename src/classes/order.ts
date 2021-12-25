@@ -1,5 +1,4 @@
-import { Location } from './location';
-import { Restaurant } from './restaurant';
+import { Destination } from './destination';
 import { Command } from './command';
 
 
@@ -7,7 +6,7 @@ class Order {
   private static last_ID_generated: number = 0;
 
   private ID: number = 0;
-  private destiny: Location;
+  private destination: Destination;
   private commands: Command[];
 
 
@@ -16,10 +15,10 @@ class Order {
     return Order.last_ID_generated;
   }
 
-  constructor(commands: Command[], destiny: Location) {
+  constructor(commands: Command[], destination: Destination) {
 	  this.generate_new_ID();
 	  this.commands = commands;
-	  this.destiny = destiny;
+	  this.destination = destination;
   }
 
 
@@ -27,8 +26,8 @@ class Order {
 	  return this.ID;
   }
 
-  getDestiny(): Location {
-	  return this.destiny;
+  getDestiny(): Destination {
+	  return this.destination;
   }
 
   getCommands(): Command[] {
