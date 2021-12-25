@@ -42,6 +42,8 @@ class Restaurant extends Location {
   setDelay(newDelay: number) {
 	this.delay = newDelay;
   }
+
+  deliveryManMessage(){}
 }
 
 
