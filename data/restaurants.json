@@ -6,12 +6,14 @@
 			{
 				"name": "Pizza Tonno",
 				"weight": 500,
-				"price": 10
+				"price": 10,
+				"estimatedRemainingTime": 10
 			},
 			{
 				"name": "Pizza Margarita",
 				"weight": 600,
-				"price": 11
+				"price": 11,
+				"estimatedRemainingTime": 10
 			}
 		]
 	},
@@ -22,12 +24,14 @@
 			{
 				"name": "Solomillo Relleno",
 				"weight": 1000,
-				"price": 15
+				"price": 15,
+				"estimatedRemainingTime": 20
 			},
 			{
 				"name": "Pescado Marinado",
 				"weight": 600,
-				"price": 13
+				"price": 13,
+				"estimatedRemainingTime": 15
 			}
 		]
 	}

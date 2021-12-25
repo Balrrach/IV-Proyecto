@@ -4,7 +4,7 @@ import { Restaurant } from '../src/classes/restaurant'
 
 
 it('Throws Error on empty name restaurant', () => {
-	assert.throw(() => { new Restaurant([1, 1, 1], '', [new Product('Pollo', 1, 1)]) }, Error);
+	assert.throw(() => { new Restaurant([1, 1, 1], '', [new Product('Pollo', 1, 1, 20)]) }, Error);
 })
 
 it('Throws Error on empty products restaurant', () => {

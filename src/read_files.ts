@@ -34,14 +34,13 @@ async function loadRestaurants(restaurantsFile: string): Promise<Restaurant[]> {
 		let products: Product[] = [];
 		for (let productIndex = 0; productIndex < currentRestaurant['products'].length; productIndex++) {
 			let currentProduct = currentRestaurant['products'][productIndex];
-			products.push(new Product(currentProduct['name'], currentProduct['weight'], currentProduct['price']));
+			products.push(new Product(currentProduct['name'], currentProduct['weight'], currentProduct['price'], currentProduct['estimatedRemainingTime']));
 		}
 
 		restaurants.push(new Restaurant(currentRestaurant['coordenates'], currentRestaurant['name'], products));
 	}
 
 	return restaurants;
-	throw new Error('Failed to parse string to json');
 }
 
 
