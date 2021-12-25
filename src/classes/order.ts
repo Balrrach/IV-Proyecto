@@ -1,6 +1,5 @@
 import { Location } from './location';
 import { Restaurant } from './restaurant';
-import { Product } from './product';
 import { Command } from './command';
 
 
