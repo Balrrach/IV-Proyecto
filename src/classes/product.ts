@@ -1,81 +1,81 @@
 class Product {
-  private static last_ID_generated: number = 0;
+	private static last_ID_generated: number = 0;
 
-  private ID: number = 0;
-  private name: String = '';
-  private weight: number = 0;
-  private price: number = 0;
-  private estimatedRemainingTime: number = 0;
-
-
-  private generate_new_ID(): number {
-    Product.last_ID_generated++;
-    return Product.last_ID_generated;
-  }
-
-  private processID(ID: number) {
-	  if(ID > 0)
-		  this.ID = ID;
-	  else
-		  throw new Error('ID has to be strictly positive');
-  }
-
-  private processName(name: string) {
-	  if(name.length > 0)
-		  this.name = name;
-	  else
-		  throw new Error('Name can\'t be empty');
-  }
-
-  private processWeight(weight: number) {
-	  if(weight > 0)
-		  this.weight = weight;
-	  else
-		  throw new Error('Weight has to be strictly positive');
-  }
+	private ID: number = 0;
+	private name: String = '';
+	private weight: number = 0;
+	private price: number = 0;
+	private estimatedRemainingTime: number = 0;
 
 
-  private processPrice(price: number) {
-	  if(price > 0)
-		  this.price = price;
-	  else
-		  throw new Error('Price has to be strictly positive');
-  }
+	private generate_new_ID(): number {
+		Product.last_ID_generated++;
+		return Product.last_ID_generated;
+	}
 
-  private processEstimatedRemaningTime(estimatedRemainingTime: number) {
-	  if(estimatedRemainingTime> 0)
-		  this.estimatedRemainingTime= estimatedRemainingTime;
-	  else
-		  throw new Error('Estimated remaining time has to be strictly positive');
-  }
+	private processID(ID: number) {
+		if(ID > 0)
+			this.ID = ID;
+		else
+			throw new Error('ID has to be strictly positive');
+	}
 
-  constructor(name: string, weight: number, price: number, estimatedRemainingTime: number) {
-	  this.processID(this.generate_new_ID());
-	  this.processName(name);
-	  this.processWeight(weight);
-	  this.processPrice(price);
-	  this.processEstimatedRemaningTime(estimatedRemainingTime)
-  }
+	private processName(name: string) {
+		if(name.length > 0)
+			this.name = name;
+		else
+			throw new Error('Name can\'t be empty');
+	}
 
-  getID(): number {
-	  return this.ID;
-  }
+	private processWeight(weight: number) {
+		if(weight > 0)
+			this.weight = weight;
+		else
+			throw new Error('Weight has to be strictly positive');
+	}
 
-  getName(): String {
-	  return this.name;
-  }
 
-  getWeight(): number {
-	  return this.weight;
-  }
+	private processPrice(price: number) {
+		if(price > 0)
+			this.price = price;
+		else
+			throw new Error('Price has to be strictly positive');
+	}
 
-  getPrice(): number {
-	  return this.price;
-  }
+	private processEstimatedRemaningTime(estimatedRemainingTime: number) {
+		if(estimatedRemainingTime> 0)
+			this.estimatedRemainingTime= estimatedRemainingTime;
+		else
+			throw new Error('Estimated remaining time has to be strictly positive');
+	}
 
-  getEstimatedRemainingTime(): number {
-	  return this.estimatedRemainingTime;
-  }
+	constructor(name: string, weight: number, price: number, estimatedRemainingTime: number) {
+		this.processID(this.generate_new_ID());
+		this.processName(name);
+		this.processWeight(weight);
+		this.processPrice(price);
+		this.processEstimatedRemaningTime(estimatedRemainingTime)
+	}
+
+	getID(): number {
+		return this.ID;
+	}
+
+	getName(): String {
+		return this.name;
+	}
+
+	getWeight(): number {
+		return this.weight;
+	}
+
+	getPrice(): number {
+		return this.price;
+	}
+
+	getEstimatedRemainingTime(): number {
+		return this.estimatedRemainingTime;
+	}
 }
 
 export { Product };
