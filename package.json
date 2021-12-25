@@ -8,7 +8,7 @@
     "build": "rm -dr ./build && tsc",
     "start": "npm run build && node build/index.js",
     "docker-build": "docker build . -t instant-eat",
-    "docker-start": "docker run -t -v \"`pwd`:/app/test\" instant-eat",
+    "docker-test": "docker run -t -v \"`pwd`:/app/test\" instant-eat",
     "check": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
