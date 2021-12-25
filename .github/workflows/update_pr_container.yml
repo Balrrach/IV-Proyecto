@@ -1,8 +1,8 @@
 name: Update PR Container
 on:
   pull_request:
-    branches:
-      - 'main'
+    # branches:
+    #   - 'main'
     paths:
       - 'Dockerfile'
       - 'package.json'
