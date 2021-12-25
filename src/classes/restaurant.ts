@@ -1,10 +1,10 @@
 import { Location } from './location'
-import { Order } from './order'; 
 import { Product } from './product'; 
+
 
 class Restaurant extends Location {
   private name: string = '';
-  private products: Product[] = []
+  private products: Product[] = [];
   private delay: number = 0;
 
   private processName(name: string) {
