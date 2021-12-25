@@ -1,4 +1,4 @@
-name: Update PR Container
+name: Update PR No External GHA
 on:
   pull_request:
     branches:
