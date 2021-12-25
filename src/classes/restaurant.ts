@@ -5,7 +5,7 @@ import { Product } from './product';
 class Restaurant extends Location {
   private name: string = '';
   private products: Product[] = []
-  private orders_ready: number[] = [];
+  private delay: number = 0;
 
   private processName(name: string) {
 	  if(name.length > 0)
@@ -35,24 +35,14 @@ class Restaurant extends Location {
 	  return this.products;
   }
 
-  getOrdersReady(): number[] {
-	return this.orders_ready;
+  getDelay(): number {
+	return this.delay;
   }
 
-
-  receive(order: number) {}
-  prepare_order()  {}
-  hand_order(id: number): boolean {
-	this.orders_ready.forEach( (order) => {
-		if(order == id) {
-			this.orders_ready = this.orders_ready.filter((or) => {or != id});
-			return true;
-		}
-	})
-	return false;
+  setDelay(newDelay: number) {
+	this.delay = newDelay;
   }
 }
 
 
 export { Restaurant };
-
