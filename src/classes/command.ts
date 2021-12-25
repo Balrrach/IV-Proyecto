@@ -8,12 +8,21 @@ enum State {
 }
 
 class Command {
+  private static last_ID_generated: number = 0
+
+  private ID: number;
   private product: Product;
   private restaurant: Restaurant;
   private remainingTime: number;
   private state: State = State.preparing;
 
+  private generate_new_ID(): number {
+    Command.last_ID_generated++;
+    return Command.last_ID_generated;
+  }
+
   constructor(product: Product, restaurant: Restaurant, remainingTime?: number) {
+	  this.ID = this.generate_new_ID();
 	  this.product = product;
 	  this.restaurant = restaurant;
 	  if(remainingTime == null)
