@@ -3,8 +3,8 @@ name: Update PR Container
 on:
   pull_request:
     paths:
-      - 'Dockerfile'
-      # - 'package.json'
+      # - 'Dockerfile'
+      - 'package.json'
 
 jobs:
   build-container:
