@@ -1,8 +1,3 @@
-enum State {
-	preparing,
-	ready,
-}
-
 class Product {
   private static last_ID_generated: number = 0
 
@@ -10,7 +5,7 @@ class Product {
   private name: String = '';
   private weight: number = 0;
   private price: number = 0;
-  private state: State = State.preparing;
+  private estimatedRemainingTime: number;
 
 
   private generate_new_ID(): number {
@@ -47,12 +42,19 @@ class Product {
 		  throw new Error('Price has to be strictly positive');
   }
 
-  constructor(name: string, weight: number, price: number) {
+  private processEstimatedRemaningTime(estimatedRemainingTime: number) {
+	  if(estimatedRemainingTime> 0)
+		  this.estimatedRemainingTime= estimatedRemainingTime;
+	  else
+		  throw new Error('Estimated remaining time has to be strictly positive');
+  }
+
+  constructor(name: string, weight: number, price: number, estimatedRemainingTime: number) {
 	  this.processID(this.generate_new_ID());
 	  this.processName(name);
 	  this.processWeight(weight);
 	  this.processPrice(price);
-	  this.state = State.preparing;
+	  this.processEstimatedRemaningTime(estimatedRemainingTime)
   }
 
   getID(): number {
@@ -69,6 +71,10 @@ class Product {
 
   getPrice(): number {
 	  return this.price;
+  }
+
+  getEstimatedRemainingTime(): number {
+	  return this.estimatedRemainingTime;
   }
 }
 
