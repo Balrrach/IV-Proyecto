@@ -12,7 +12,7 @@ Para consultar la documentacion del proyecto visite el siguiente enlace: [docs](
 
 
 ### Taks
-Las tareas programadas son las siguientes:
+Las tareas disponibles son las siguientes:
  - `npm run start`: Compila y ejecuta el programa
  - `npm run check`: Comprueba la correccion sintactica del programa completo
  - `npm run test`: Corre los tests

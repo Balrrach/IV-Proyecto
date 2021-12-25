@@ -6,30 +6,30 @@ import { Route } from './route'
 
 
 class RouteCalculator {
-  private deliveryMen: DeliveryMan[] = [];
+	private deliveryMen: DeliveryMan[] = [];
 
 
-  constructor() {}
+	constructor() {}
 
 
-  addDeliveryMan(deliveryMan: DeliveryMan) {}
-  removeDeliveryMan(delivery_man: DeliveryMan) {}
+	addDeliveryMan(deliveryMan: DeliveryMan) {}
+	removeDeliveryMan(delivery_man: DeliveryMan) {}
 
-  addOrders(orders: Order[]) {
-	  return this.recalculateRoutes();
-  }
+	addOrders(orders: Order[]) {
+		return this.recalculateRoutes();
+	}
 
-  private recalculateRoutes() {}
-  private distance(loc1: Location, loc2: Location) {
-	  let coor1 = loc1.getCoordinates();
-	  let coor2 = loc2.getCoordinates();
-	  let result = 0;
+	private recalculateRoutes() {}
+	private distance(loc1: Location, loc2: Location) {
+		let coor1 = loc1.getCoordinates();
+		let coor2 = loc2.getCoordinates();
+		let result = 0;
 
-	  coor1.forEach((element, index) => {
-		  result += (coor1[index] - coor2[index])**2;
-	  })
-	  return result;
-  }
+		coor1.forEach((element, index) => {
+			result += (coor1[index] - coor2[index])**2;
+		})
+		return result;
+	}
 }
 
 
