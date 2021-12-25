@@ -19,3 +19,6 @@ class Destination extends Location {
 
   deliveryManMessage(){}
 }
+
+
+export { Destination }
