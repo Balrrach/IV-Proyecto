@@ -1,11 +1,11 @@
 class Product {
-  private static last_ID_generated: number = 0
+  private static last_ID_generated: number = 0;
 
   private ID: number = 0;
   private name: String = '';
   private weight: number = 0;
   private price: number = 0;
-  private estimatedRemainingTime: number;
+  private estimatedRemainingTime: number = 0;
 
 
   private generate_new_ID(): number {
