@@ -1,19 +1,18 @@
 import { Location } from './location';
-import { Restaurant } from './restaurant';
 import { Order } from './order'
 
 
 class Route {
-  private destinations: Location[] = [];
-  private orders: Order[] = [];
+  private route: Location[];
+  private orders: Order[];
 
-  constructor(destinations: Location[] = [], orders: Order[] = []) {
-	  this.destinations = destinations;
+  constructor(route: Location[] = [], orders: Order[] = []) {
+	  this.route = route;
 	  this.orders = orders;
   }
 
   getDestinations(): Location[] {
-	  return this.destinations;
+	  return this.route;
   }
 
   getOrders(): Order[] {
@@ -22,7 +21,7 @@ class Route {
 
 
   getNextDestination(): Location {
-	return this.destinations[0];
+	return this.route[0];
   }
 
   update() {}
