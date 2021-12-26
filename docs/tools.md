@@ -48,7 +48,7 @@ Los requisitos para el logger son:
 5. Permite dar color a los logs por pantalla: Da mayor legibilidad a los logs
 
 #### Conveniente:
-1. Eficiencia(poco sobrecoste)
+1. Soporte para typescript
 2. Lazy loading: Permite minimizar el tiempo de arranque
 3. Simplicidad y buena notación: Facilitan enormemente su uso
 4. Archivos rotatorios
@@ -56,6 +56,7 @@ Los requisitos para el logger son:
 6. Permite medir el tiempo por medio de timestamps: Puesto que la aplicación se ejecuta en tiempo real y el rendimiento es fundamental
 7. Permite desactivar los logs: En caso de haber alcanzado una gran estabilidad y necesitar máxima eficiencia
 8. Mantiene la pila de llamadas intacta
+9. Eficiencia(poco sobrecoste)
 
 Se han considerado los siguientes loggers:
 - [winston](https://www.npmjs.com/package/winston)
@@ -71,6 +72,7 @@ Se han considerado los siguientes loggers:
 Los únicos que verifican todos los requisitos necesarios son: winston, pino, bunyan, ulog.
 De estos winston y bunyan, pese a ser los de mayor calado y los que tienen un mayor número de proyectos dependientes se encuentran un estado de conservación deplorable.
 La última versión de ambos salió hace dos años y sus respectivos repositorios tienen la bandeja de issues a los que no responden llenas y están igualmente abrumados por PR ignorados desde hace años.
-Entre pino y ulog se ha elegido ulog porque es el que verifica un mayor número de requisitos secundarios:
-- pino: 1, 3, 5
+Entre pino y ulog se tiene la siguiente comparación en términos de objetivos secundarios:
+- pino: 1, 3, 5 y 9
 - ulog: 2, 3, 5 y 8
+Finalmente se ha elegido pino porque, aunque ambos verifican el mismo número de objetivos secundarios, los que verifica pino son más relevantes, en particular 1(soporte nativo para typescript).
