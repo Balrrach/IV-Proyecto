@@ -75,4 +75,5 @@ La última versión de ambos salió hace dos años y sus respectivos repositorio
 Entre pino y ulog se tiene la siguiente comparación en términos de objetivos secundarios:
 - pino: 1, 3, 5 y 9
 - ulog: 2, 3, 5 y 8
+
 Finalmente se ha elegido pino porque, aunque ambos verifican el mismo número de objetivos secundarios, los que verifica pino son más relevantes, en particular 1(soporte nativo para typescript).
