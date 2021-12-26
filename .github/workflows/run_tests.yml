@@ -1,11 +1,8 @@
 name: Run Tests
 on:
-  workflow_run:
-    workflows: 
-      - "Create PR Container"
-      - "Update PR Container"
-    types:
-      - requested
+  pull_request:
+    branches:
+      - 'main'
 
 jobs:
   run-tests:
