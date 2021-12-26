@@ -38,6 +38,7 @@ En el reparto de los test:
 
 
 ## Logger
+Es conveniente disponer de un sistema de logs para que los errores reportados por los usuarios sean trazables y los desarrolladores puedan arreglarlos con mayor facilidad.
 Los requisitos para el logger son:
 
 #### Necesario:
@@ -48,7 +49,7 @@ Los requisitos para el logger son:
 5. Permite dar color a los logs por pantalla: Da mayor legibilidad a los logs
 
 #### Conveniente:
-1. Soporte para typescript
+1. Soporte para tipos de typescript
 2. Lazy loading: Permite minimizar el tiempo de arranque
 3. Simplicidad y buena notación: Facilitan enormemente su uso
 4. Archivos rotatorios
@@ -77,3 +78,32 @@ Entre pino y ulog se tiene la siguiente comparación en términos de objetivos s
 - ulog: 2, 3, 5 y 8
 
 Finalmente se ha elegido pino porque, aunque ambos verifican el mismo número de objetivos secundarios, los que verifica pino son más relevantes, en particular 1(soporte nativo para typescript).
+
+
+## Configuración Remota
+Es conveniente disponer de un sistema de conexión con un servidor que actúe como depósito de clave-valor a través del cual se puedan recopilar datos como archivos de configuración evitando a través de este mecanismo la necesidad de incluir datos sensibles junto con las copias del programa lo cual puede suponer problemas de seguridad, entre otros.
+Uno de los sistemas que permite dicho uso es [etcd](https://etcd.io/). Y una de las librerías que inplementa su API(más bien etcd3 que es una interfaz de alto nivel que permite la interación con etcd) es [etcd3](https://www.npmjs.com/package/etcd3).
+La librería está implementada por Microsoft lo cual es positivo puesto que lo usa en sus propios proyectos y es más difícil que se abandone a largo plazo.
+Además, tiene muy pocos issues y PR abiertos y todos los PR están relacionados con la actualización de dependencias mientras que ningún issue está relacionado con bugs sino con enriquecimientos y otros.
+Queda fuera de las miras de la asignatura la configuración de un servidor pero se ha simulado su funcionamiento en la aplicación. Para acerlo funcionar correctamente bastaría con instanciar el objeto con los valores de un puerto de un servidor correctamente configurado.
+
+
+## Variables de Entorno
+Es necesario cargar la configuración a partir de un fichero local. Para esto se puede parsear el archivo o se puede utilizar una librería que realice esta función.
+Reinventar la rueda puede introducir errores inesperados y es una pérdida de tiempo por lo que se ha optado por el uso de una librería. 
+Requisitos para la librería:
+1. Capacidad de configuración desde la terminal
+2. Soporte para tipos de typescript
+
+Las librerías consideradas son:
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [env2](https://www.npmjs.com/package/env2)
+- [nconf](https://www.npmjs.com/package/nconf)
+- [envalid](https://www.npmjs.com/package/envalid)
+
+envalid es muy interesante porque permite obtener la configuración de un servidor pudiendo ejercer también como un librería para la configuración remota pero no verifica 1 por lo que ha sido descartada.
+env2 no verifica 2 por lo que también ha sido descartada. Por último, entre dotenv y nconf se ha escogido dotenv fundamentalmente por tres motivos.
+El primero es que el estado de mantenimiento de dotenv es mucho mejor que el de nconf; aunque la última versión disponible de dotenv es algo más antigua que la de nconf este último tiene la friolera de un 98 issues abiertos a 26 de diciembre de 2021. Además, cuanto más se avanza en el historial de issues se observa que estos no son respondidos por ninguno de los mantenedores.
+El segundo es que, mientras que dotenv no tiene dependencias, nconf tiene 4. Cuantas menos dependencias la librería mejor porque menos dependencias tendrá el proyecto.
+El tercero es que dotenv tiene el soporte para tipos totalmente integrado mientras que nconfg las tiene en un paquete a parte(esto es un detalle).
+
