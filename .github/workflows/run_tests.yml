@@ -1,10 +1,11 @@
 name: Run Tests
 on:
   workflow_run:
-    workflows: ["Create PR Container", "Update PR Container"]
-  pull_request:
-    branches:
-      - 'main'
+    workflows: 
+      - "Create PR Container"
+      - "Update PR Container"
+    types:
+      - completed
 
 jobs:
   run-tests:
