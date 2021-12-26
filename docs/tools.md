@@ -19,6 +19,7 @@ Los únicos contenedores que cumplen el primer y el segundo requisito son los of
 De las familias disponible las únicas que verifican el tercer requisito son las alpine y las slim. Se ha escogido las basadas en alpine porque las slim sólo incluyen los paquetes mínimos y necesarios para correr node. Son extremadamente austeras.
 Los mismos creadores de los contenedores recomiendan su uso únicamente si se va a trabaja en un entorno con espacio restringido en el que sólo se va a desplegar la imagen node. No se tiene certeza de que no hagan falta desplegar más imágenes en el futuro y el espacio, aunque relevante, no es crucial.
 
+
 ## CI
 Requisitos para el sistema online de prueba de código:
 1. Construye en linux
@@ -35,3 +36,41 @@ En el reparto de los test:
 - GitHub Actions: Ejecutara los tests unitarios y los tests relaccionados con la actualizacion de los contenedores docker.
 - Circleci: Ejecutara los tests relaccionados con el control de las versiones de compilacion.
 
+
+## Logger
+Los requisitos para el logger son:
+
+#### Necesario:
+1. Permite diferentes niveles de loggeo: Absolutamente necesario para estructurar los logs
+2. Permite la personalización del fichero de salida: Muy conveniente para gestionar el historial de logs
+3. Permite formatear/estructurar los logs: Permite mostrar contenido diferente en función de la necesidad
+4. Permite mostrar los logs por pantalla con ajuste dinámico: Permite usar la funcionalidad de log para debuggear el codigo en caso de necesidad
+5. Permite dar color a los logs por pantalla: Da mayor legibilidad a los logs
+
+#### Conveniente:
+1. Eficiencia(poco sobrecoste)
+2. Lazy loading: Permite minimizar el tiempo de arranque
+3. Simplicidad y buena notación: Facilitan enormemente su uso
+4. Archivos rotatorios
+5. Permite su uso en el navegador: Da mayor versatilidad
+6. Permite medir el tiempo por medio de timestamps: Puesto que la aplicación se ejecuta en tiempo real y el rendimiento es fundamental
+7. Permite desactivar los logs: En caso de haber alcanzado una gran estabilidad y necesitar máxima eficiencia
+8. Mantiene la pila de llamadas intacta
+
+Se han considerado los siguientes loggers:
+- [winston](https://www.npmjs.com/package/winston)
+- [pino](https://www.npmjs.com/package/pino)
+- [bunyan](https://www.npmjs.com/package/bunyan)
+- [bole](https://www.npmjs.com/package/bole)
+- [debug](https://www.npmjs.com/package/debug)
+- [ulog](https://www.npmjs.com/package/ulog)
+- [roarr](https://www.npmjs.com/package/roarr)
+- [loglevel](https://www.npmjs.com/package/loglevel)
+- [log4js](https://www.npmjs.com/package/log4js)
+
+Los únicos que verifican todos los requisitos necesarios son: winston, pino, bunyan, ulog.
+De estos winston y bunyan, pese a ser los de mayor calado y los que tienen un mayor número de proyectos dependientes se encuentran un estado de conservación deplorable.
+La última versión de ambos salió hace dos años y sus respectivos repositorios tienen la bandeja de issues a los que no responden llenas y están igualmente abrumados por PR ignorados desde hace años.
+Entre pino y ulog se ha elegido ulog porque es el que verifica un mayor número de requisitos secundarios:
+- pino: 1, 3, 5
+- ulog: 2, 3, 5 y 8
