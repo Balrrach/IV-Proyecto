@@ -5,7 +5,7 @@ on:
       - "Create PR Container"
       - "Update PR Container"
     types:
-      - completed
+      - requested
 
 jobs:
   run-tests:
