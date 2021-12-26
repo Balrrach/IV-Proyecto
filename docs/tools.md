@@ -55,7 +55,7 @@ Los requisitos para el logger son:
 8. Mantiene la pila de llamadas intacta
 9. Eficiencia(poco sobrecoste)
 
-Se han considerado los siguientes loggers: [winston](https://www.npmjs.com/package/winston), [pino](https://www.npmjs.com/package/pino), [bunyan](https://www.npmjs.com/package/bunyan), [bole](https://www.npmjs.com/package/bole), [debug](https://www.npmjs.com/package/debug), [ulog](https://www.npmjs.com/package/ulog), [roarr](https://www.npmjs.com/package/roarr), [loglevel](https://www.npmjs.com/package/loglevel) y [log4js](https://www.npmjs.com/package/log4js)
+Se han considerado los siguientes loggers: [winston](https://www.npmjs.com/package/winston), [pino](https://www.npmjs.com/package/pino), [bunyan](https://www.npmjs.com/package/bunyan), [bole](https://www.npmjs.com/package/bole), [debug](https://www.npmjs.com/package/debug), [ulog](https://www.npmjs.com/package/ulog), [roarr](https://www.npmjs.com/package/roarr), [loglevel](https://www.npmjs.com/package/loglevel) y [log4js](https://www.npmjs.com/package/log4js).
 
 Los únicos que verifican todos los requisitos necesarios son: winston, pino, bunyan, ulog.
 De estos winston y bunyan, pese a ser los de mayor calado y los que tienen un mayor número de proyectos dependientes se encuentran un estado de conservación deplorable.
