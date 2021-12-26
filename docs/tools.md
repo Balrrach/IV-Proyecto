@@ -55,16 +55,7 @@ Los requisitos para el logger son:
 8. Mantiene la pila de llamadas intacta
 9. Eficiencia(poco sobrecoste)
 
-Se han considerado los siguientes loggers:
-- [winston](https://www.npmjs.com/package/winston)
-- [pino](https://www.npmjs.com/package/pino)
-- [bunyan](https://www.npmjs.com/package/bunyan)
-- [bole](https://www.npmjs.com/package/bole)
-- [debug](https://www.npmjs.com/package/debug)
-- [ulog](https://www.npmjs.com/package/ulog)
-- [roarr](https://www.npmjs.com/package/roarr)
-- [loglevel](https://www.npmjs.com/package/loglevel)
-- [log4js](https://www.npmjs.com/package/log4js)
+Se han considerado los siguientes loggers: [winston](https://www.npmjs.com/package/winston), [pino](https://www.npmjs.com/package/pino), [bunyan](https://www.npmjs.com/package/bunyan), [bole](https://www.npmjs.com/package/bole), [debug](https://www.npmjs.com/package/debug), [ulog](https://www.npmjs.com/package/ulog), [roarr](https://www.npmjs.com/package/roarr), [loglevel](https://www.npmjs.com/package/loglevel) y [log4js](https://www.npmjs.com/package/log4js)
 
 Los únicos que verifican todos los requisitos necesarios son: winston, pino, bunyan, ulog.
 De estos winston y bunyan, pese a ser los de mayor calado y los que tienen un mayor número de proyectos dependientes se encuentran un estado de conservación deplorable.
@@ -85,17 +76,13 @@ Queda fuera de las miras de la asignatura la configuración de un servidor pero 
 
 
 ## Variables de Entorno
-Es necesario cargar la configuración a partir de un fichero local. Para esto se puede parsear el archivo o se puede utilizar una librería que realice esta función.
+Es necesario cargar la configuración a partir de un fichero local o de la propia terminal. Para esto se puede parsear un archivo/entrada estandard o se puede utilizar una librería que realice esta función.
 Reinventar la rueda puede introducir errores inesperados y es una pérdida de tiempo por lo que se ha optado por el uso de una librería. 
 Requisitos para la librería:
 1. Capacidad de configuración desde la terminal
 2. Soporte para tipos de typescript
 
-Las librerías consideradas son:
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [env2](https://www.npmjs.com/package/env2)
-- [nconf](https://www.npmjs.com/package/nconf)
-- [envalid](https://www.npmjs.com/package/envalid)
+Las librerías consideradas son: [dotenv](https://www.npmjs.com/package/dotenv), [env2](https://www.npmjs.com/package/env2), [nconf](https://www.npmjs.com/package/nconf) y [envalid](https://www.npmjs.com/package/envalid).
 
 envalid es muy interesante porque permite obtener la configuración de un servidor pudiendo ejercer también como un librería para la configuración remota pero no verifica 1 por lo que ha sido descartada.
 env2 no verifica 2 por lo que también ha sido descartada. Por último, entre dotenv y nconf se ha escogido dotenv fundamentalmente por tres motivos.
