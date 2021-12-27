@@ -2,8 +2,6 @@ name: Update PR Container
 
 on:
   pull_request:
-    types: 
-      - opened
     branches:
       - 'main'
     paths:
