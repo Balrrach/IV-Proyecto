@@ -3,13 +3,21 @@ import { Location } from './location';
 import { Restaurant } from './restaurant';
 import { Order } from './order';
 import { Route } from './route'
+import { controller } from '../controller'
+const loggerPromise = controller.getLogger().then((baseLogger) => {
+	 return baseLogger.child({ module: 'RouteCalculator'})
+})
 
 
 class RouteCalculator {
 	private deliveryMen: DeliveryMan[] = [];
 
 
-	constructor() {}
+	constructor() {
+		loggerPromise.then(loggerReady => {
+			loggerReady.info("Object correctly instantiated");
+		})
+	}
 
 
 	addDeliveryMan(deliveryMan: DeliveryMan) {}
@@ -28,6 +36,8 @@ class RouteCalculator {
 		coor1.forEach((element, index) => {
 			result += (coor1[index] - coor2[index])**2;
 		})
+
+		// logger.info("Distance between " + coor1 + " and " + co)
 		return result;
 	}
 }

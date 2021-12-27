@@ -1,3 +1,9 @@
+import { controller } from '../controller'
+const loggerPromise = controller.getLogger().then((baseLogger) => {
+	 return baseLogger.child({ module: 'Product'})
+})
+
+
 class Product {
 	private static last_ID_generated: number = 0;
 
@@ -16,37 +22,57 @@ class Product {
 	private processID(ID: number) {
 		if(ID > 0)
 			this.ID = ID;
-		else
-			throw new Error('ID has to be strictly positive');
+		else{
+			loggerPromise.then(loggerReady => {
+				loggerReady.error("ID has to be strictly positive")
+			})
+			throw new Error("ID has to be strictly positive");
+		}
 	}
 
 	private processName(name: string) {
 		if(name.length > 0)
 			this.name = name;
-		else
-			throw new Error('Name can\'t be empty');
+		else{
+			loggerPromise.then(loggerReady => {
+				loggerReady.error("Name can't be empty")
+			})
+			throw new Error("Name can't be empty");
+		}
 	}
 
 	private processWeight(weight: number) {
 		if(weight > 0)
 			this.weight = weight;
-		else
-			throw new Error('Weight has to be strictly positive');
+		else{
+		loggerPromise.then(loggerReady => {
+			loggerReady.error("Weight has to be strictly positive")
+		})
+			throw new Error("Weight has to be strictly positive");
+		}
 	}
 
 
 	private processPrice(price: number) {
 		if(price > 0)
 			this.price = price;
-		else
-			throw new Error('Price has to be strictly positive');
+		else{
+			loggerPromise.then(loggerReady => {
+				loggerReady.error("Price has to be strictly positive")
+			})
+			throw new Error("Price has to be strictly positive");
+		}
 	}
 
 	private processEstimatedRemaningTime(estimatedRemainingTime: number) {
 		if(estimatedRemainingTime> 0)
 			this.estimatedRemainingTime= estimatedRemainingTime;
-		else
-			throw new Error('Estimated remaining time has to be strictly positive');
+		else{
+			loggerPromise.then(loggerReady => {
+				loggerReady.error("Estimated remaining time has to be strictly positive")
+			})
+			throw new Error("Estimated remaining time has to be strictly positive");
+		}
 	}
 
 	constructor(name: string, weight: number, price: number, estimatedRemainingTime: number) {
@@ -54,7 +80,11 @@ class Product {
 		this.processName(name);
 		this.processWeight(weight);
 		this.processPrice(price);
-		this.processEstimatedRemaningTime(estimatedRemainingTime)
+		this.processEstimatedRemaningTime(estimatedRemainingTime);
+
+		loggerPromise.then(loggerReady => {
+			loggerReady.info("Object correctly instantiated")
+		})
 	}
 
 	getID(): number {
