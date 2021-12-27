@@ -4,41 +4,26 @@ require('dotenv').config({ path:'./config/configuration.env'})
 
 class Config {
 	public Ready: Promise<any>;
-	private logFile: string = '';
 	private logDir: string = ''; 
+	private logFile: string = '';
 	private client = new Etcd3();
 
-	readonly defaultLogFile: string = 'logs.json'
 	readonly defaultLogDir: string = '/tmp/logs/'
+	readonly defaultLogFile: string = 'logs.json'
 
-	constructor(defaultLogFile?: string, defaultLogDir?: string){
-		if(defaultLogFile)
-			this.defaultLogFile = defaultLogFile;
+	constructor(defaultLogDir?: string, defaultLogFile?: string){
 		if(defaultLogDir)
 			this.defaultLogDir = defaultLogDir;
+		if(defaultLogFile)
+			this.defaultLogFile = defaultLogFile;
 
 		this.Ready = new Promise((resolve, reject) => {
-			this.readLogFile().then(res => { this.logFile = res; });
 			this.readLogDir().then(res => { this.logDir = res; });
+			this.readLogFile().then(res => { this.logFile = res; });
 			resolve(undefined);
 		})
 	}
 
-
-	async readLogFile() {
-		let serverLogFile = await this.client.get('LOG_FILE').string().catch(err => {});
-		let environmentLogFile = process.env.LOG_FILE;
-
-		if(serverLogFile != null){
-			return serverLogFile;
-		}
-		else if(environmentLogFile!= undefined){
-			return String(environmentLogFile);
-		}
-		else{
-			return this.defaultLogFile;
-		}
-	}
 
 	async readLogDir() {
 		let serverLogDir = await this.client.get('LOG_DIRECTORY').string().catch(err => {});
@@ -55,12 +40,28 @@ class Config {
 		}
 	}
 
-	public getLogFile(): string {
-		return this.logFile;
+	async readLogFile() {
+		let serverLogFile = await this.client.get('LOG_FILE').string().catch(err => {});
+		let environmentLogFile = process.env.LOG_FILE;
+
+		if(serverLogFile != null){
+			return serverLogFile;
+		}
+		else if(environmentLogFile!= undefined){
+			return String(environmentLogFile);
+		}
+		else{
+			return this.defaultLogFile;
+		}
 	}
+
 
 	public getLogDir(): string {
 		return this.logDir;
+	}
+
+	public getLogFile(): string {
+		return this.logFile;
 	}
 }
 
