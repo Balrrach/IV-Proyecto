@@ -1,6 +1,6 @@
 import { controller } from '../controller'
-const loggerPromise = controller.getLogger().then((baseLogger) => {
-	 return baseLogger.child({ module: 'Location'})
+const loggerPromise = controller.Ready.then(() => {
+	return controller.getLogger().child({ module: 'Location'})
 })
 
 

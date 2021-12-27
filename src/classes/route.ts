@@ -1,8 +1,8 @@
 import { Location } from './location';
 import { Order } from './order'
 import { controller } from '../controller'
-const loggerPromise = controller.getLogger().then((baseLogger) => {
-	 return baseLogger.child({ module: 'Route'})
+const loggerPromise = controller.Ready.then(() => {
+	return controller.getLogger().child({ module: 'Route'})
 })
 
 

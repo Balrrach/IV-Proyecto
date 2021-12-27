@@ -4,8 +4,8 @@ import { Order } from './order';
 import { Route } from './route';
 import { DeliveryMan } from './delivery_man';
 import { controller } from '../controller'
-const loggerPromise = controller.getLogger().then((baseLogger) => {
-	 return baseLogger.child({ module: 'Manager'})
+const loggerPromise = controller.Ready.then(() => {
+	return controller.getLogger().child({ module: 'Manager'})
 })
 
 

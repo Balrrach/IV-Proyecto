@@ -4,8 +4,8 @@ import { Restaurant } from './restaurant';
 import { Order } from './order';
 import { Route } from './route'
 import { controller } from '../controller'
-const loggerPromise = controller.getLogger().then((baseLogger) => {
-	 return baseLogger.child({ module: 'RouteCalculator'})
+const loggerPromise = controller.Ready.then(() => {
+	return controller.getLogger().child({ module: 'RouteCalculator'})
 })
 
 
