@@ -6,7 +6,7 @@ import { Product } from './classes/product'
 import { controller } from './controller'
 
 // Read locations
-controller.config.Ready.then( () => {
+controller.Ready.then( () => {
 	const restaurantsFile = './data/restaurants.json';
 	let restaurants: Promise<Restaurant[]> = loadRestaurants(restaurantsFile);
 
