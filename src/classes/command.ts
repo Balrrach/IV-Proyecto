@@ -1,8 +1,8 @@
 import { Product } from './product'; 
 import { Restaurant } from './restaurant'
 import { controller } from '../controller'
-const loggerPromise = controller.getLogger().then((baseLogger) => {
-	 return baseLogger.child({ module: 'Command'})
+const loggerPromise = controller.Ready.then(() => {
+	return controller.getLogger().child({ module: 'Command'})
 })
 
 

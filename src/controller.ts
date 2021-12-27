@@ -9,19 +9,19 @@ class Controller {
 	private logger: any;
 
 	constructor(config?: Config){
-		// if(config){
-		// 	this.config = config;
-		// }
+		if(config){
+			this.config = config;
+		}
 
 		this.Ready = new Promise((resolve, reject) => {
-			this.createLogger();
-			resolve(undefined);
+			this.config.Ready.then(() => {
+				this.createLogger();
+				resolve(undefined);
+			})
 		})
 	}
 
 	async createLogger(){
-		await this.config.Ready
-
 		let logDir = this.config.getLogDir();
 		let logFile = this.config.getLogFile();
 		let logRoute = logDir + logFile;
@@ -38,8 +38,7 @@ class Controller {
 	}
 
 
-	async getLogger(): Promise<any> {
-		await this.Ready;
+	getLogger(): any {
 		return this.logger;
 	}
 }
