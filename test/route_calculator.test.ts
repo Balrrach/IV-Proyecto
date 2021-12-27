@@ -15,6 +15,6 @@ it('Distance to the same location is 0', () => {
 	expect(myinstance.distance(location1, location1)).to.equal(0);
 })
 
-it('Distance to a further location is greater', () => {
+it('Distance to a further location is greater than to a closer one', () => {
 	expect(myinstance.distance(location1, location3)).to.be.greaterThan(myinstance.distance(location1, location2));
 })
