@@ -4,34 +4,42 @@ import * as fs from 'fs';
 
 
 class Controller {
-	private config: Config = new Config();
+	public Ready: Promise<any>;
+	public config: Config = new Config();
 	private logger: any;
 
 	constructor(config?: Config){
-		if(config){
-			this.config = config;
-		}
-		this.createLogger();
+		// if(config){
+		// 	this.config = config;
+		// }
+		this.Ready = new Promise((resolve, reject) => {
+			this.createLogger();
+			resolve(undefined);
+		})
 	}
 
 	createLogger(){
-		let logDir = this.config.getLogDir();
-		let logFile = this.config.getLogFile();
-		let logRoute = logDir + logFile;
+		this.config.Ready.then(() => {
+			let logDir = this.config.getLogDir();
+			let logFile = this.config.getLogFile();
+			let logRoute = logDir + logFile;
 
-		if(!fs.existsSync(logDir)){
-			fs.mkdirSync(logDir);
-		}
+			console.log("Directorio ----------->", logDir)
+			console.log("Archivo    ----------->", logFile)
+			if(!fs.existsSync(logDir)){
+				try { fs.mkdirSync(logDir, {recursive: true}) }
+				catch (err) { console.error(err) }
+			}
 
-		const dest = pino.destination(logRoute);
-		this.logger = pino(dest);
+			const dest = pino.destination(logRoute);
+			this.logger = pino(dest);
+		})
 	}
 
 
-	getLogger(){
-		return this.logger;
+	async getLogger(): Promise<any> {
+		return this.config.Ready.then(() => { return this.logger })
 	}
-
 }
 
 

@@ -1,9 +1,13 @@
 import { Order } from './order';
 import { Route } from './route';
+import { controller } from '../controller'
+const loggerPromise = controller.getLogger().then((baseLogger) => {
+	 return baseLogger.child({ module: 'DeliveryMan'})
+})
 
 
 class DeliveryMan {
-	private static last_ID_generated: number = 0
+	private static last_ID_generated: number = 0;
 
 	private ID: number = 0;
 	private name: string = '';
@@ -19,14 +23,23 @@ class DeliveryMan {
 	private processName(name: string) {
 		if(name.length > 0)
 			this.name = name;
-		else
-			throw new Error('Name can\'t be empty');
+		else{
+			loggerPromise.then(loggerReady => {
+				loggerReady.error("Name can't be empty");
+			})
+			throw new Error("Name can't be empty");
+		}
 	}
 
 	constructor(name: string, coordinates: [number, number, number], maximumWeight: number = 15000) {
+		this.generate_new_ID();
 		this.processName(name);
 		this.coordinates = coordinates;
 		this.maximumWeight = maximumWeight;
+
+		loggerPromise.then(loggerReady => {
+			loggerReady.info("DeliveryMan object correctly instantiated");
+		})
 	}
 
 

@@ -1,5 +1,9 @@
 import { Destination } from './destination';
 import { Command } from './command';
+import { controller } from '../controller'
+const loggerPromise = controller.getLogger().then((baseLogger) => {
+	 return baseLogger.child({ module: 'Order'})
+})
 
 
 class Order {
@@ -19,6 +23,10 @@ class Order {
 		this.generate_new_ID();
 		this.commands = commands;
 		this.destination = destination;
+
+		loggerPromise.then(loggerReady => {
+			loggerReady.info("Object correctly instantiated");
+		})
 	}
 
 
