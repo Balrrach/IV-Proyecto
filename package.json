@@ -1,7 +1,7 @@
 {
   "name": "Instant-Eat",
   "version": "1.0.0",
-  "description": "Proyecto dedicado a la resolución del \"Problema del Repartidor\" para la asignatura de Infraestructura Virtual",
+  "description": "Proyecto dedicado a la resolución del \"Problema del Repartidor\" para la asignatura de Infraestructura Virtual.",
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register ./test/**/*.test.ts",
