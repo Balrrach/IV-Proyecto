@@ -27,7 +27,13 @@ class Controller {
 		this.logger = pino(dest);
 	}
 
+
+	getLogger(){
+		return this.logger;
+	}
+
 }
 
 
-export { Controller }
+const controller = new Controller();
+export { controller }
