@@ -1,7 +1,11 @@
 name: Update PR Container
 
 on:
-  push:
+  pull_request:
+    types: 
+      - opened
+    branches:
+      - 'main'
     paths:
       - 'Dockerfile'
       - 'package.json'
