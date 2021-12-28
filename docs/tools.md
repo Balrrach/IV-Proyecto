@@ -72,11 +72,11 @@ Es conveniente disponer de un sistema de conexión con un servidor que actúe co
 Uno de los sistemas que permite dicho uso es [etcd](https://etcd.io/). Y una de las librerías que inplementa su API(más bien etcd3 que es una interfaz de alto nivel que permite la interación con etcd) es [etcd3](https://www.npmjs.com/package/etcd3).
 La librería está implementada por Microsoft lo cual es positivo puesto que lo usa en sus propios proyectos y es más difícil que se abandone a largo plazo.
 Además, tiene muy pocos issues y PR abiertos y todos los PR están relacionados con la actualización de dependencias mientras que ningún issue está relacionado con bugs sino con enriquecimientos y otros.
-Queda fuera de las miras de la asignatura la configuración de un servidor pero se ha simulado su funcionamiento en la aplicación. Para acerlo funcionar correctamente bastaría con instanciar el objeto con los valores de un puerto de un servidor correctamente configurado.
+Queda fuera de las miras de la asignatura la configuración de un servidor pero se ha simulado su funcionamiento en la aplicación. Para hacerlo funcionar correctamente bastaría con instanciar el objeto con los valores de un puerto de un servidor correctamente configurado.
 
 
 ## Variables de Entorno
-Es necesario cargar la configuración a partir de un fichero local o de la propia terminal. Para esto se puede parsear un archivo/entrada estandard o se puede utilizar una librería que realice esta función.
+Es necesario cargar la configuración a partir de un fichero local o de la propia terminal. Para esto se puede parsear un archivo/entrada estándar o se puede utilizar una librería que realice esta función.
 Reinventar la rueda puede introducir errores inesperados y es una pérdida de tiempo por lo que se ha optado por el uso de una librería. 
 Requisitos para la librería:
 1. Capacidad de configuración desde la terminal
