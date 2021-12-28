@@ -18,7 +18,3 @@ restaurants.then(restaurants =>{
 	manager.listRestaurants();
 })
 
-let manager: Manager = new Manager();
-let newRestaurant = new Restaurant([1, 1, 1], "Alfredo's", [new Product('Pollo', 1, 1, 20)])
-manager.removeRestaurant(newRestaurant)
-
