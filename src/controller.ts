@@ -13,12 +13,11 @@ class Controller {
 			this.config = config;
 		}
 
-		this.Ready = new Promise((resolve, reject) => {
+		this.Ready = Promise.all([
 			this.config.Ready.then(() => {
 				this.createLogger();
-				resolve(undefined);
 			})
-		})
+		])
 	}
 
 	async createLogger(){
@@ -26,8 +25,6 @@ class Controller {
 		let logFile = this.config.getLogFile();
 		let logRoute = logDir + logFile;
 
-		console.log("Directorio ----------->", logDir)
-		console.log("Archivo    ----------->", logFile)
 		if(!fs.existsSync(logDir)){
 			try { fs.mkdirSync(logDir, {recursive: true}) }
 			catch (err) { console.error(err) }
