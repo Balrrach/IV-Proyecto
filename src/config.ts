@@ -17,11 +17,10 @@ class Config {
 		if(defaultLogFile)
 			this.defaultLogFile = defaultLogFile;
 
-		this.Ready = new Promise((resolve, reject) => {
-			this.readLogDir().then(res => { this.logDir = res; });
-			this.readLogFile().then(res => { this.logFile = res; });
-			resolve(undefined);
-		})
+		this.Ready = Promise.all([
+			this.readLogDir().then(res => { this.logDir = res; }),
+			this.readLogFile().then(res => { this.logFile = res; }),
+		])
 	}
 
 
