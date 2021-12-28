@@ -5,4 +5,4 @@ automatizar:
   orden: npm run
 test: src/tests/location.test.ts
 CI: .github/workflows
-configuracion: config/configuration.env
+configuracion: src/config.ts
