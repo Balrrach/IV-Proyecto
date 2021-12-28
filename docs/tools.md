@@ -41,7 +41,7 @@ Los requisitos para el logger son:
 1. Permite diferentes niveles de loggeo: Absolutamente necesario para estructurar los logs
 2. Permite la personalización del fichero de salida: Muy conveniente para gestionar el historial de logs
 3. Permite formatear/estructurar los logs: Permite mostrar contenido diferente en función de la necesidad
-4. Permite mostrar los logs por pantalla con ajuste dinámico: Permite usar la funcionalidad de log para debuggear el codigo en caso de necesidad
+4. Permite mostrar los logs por pantalla con ajuste dinámico: Permite usar la funcionalidad de log para debuggear el código en caso de necesidad
 5. Permite dar color a los logs por pantalla: Da mayor legibilidad a los logs
 
 #### Conveniente:
@@ -69,7 +69,7 @@ Finalmente se ha elegido pino porque, aunque ambos verifican el mismo número de
 
 ## Configuración Remota
 Es conveniente disponer de un sistema de conexión con un servidor que actúe como depósito de clave-valor a través del cual se puedan recopilar datos como archivos de configuración evitando a través de este mecanismo la necesidad de incluir datos sensibles junto con las copias del programa lo cual puede suponer problemas de seguridad, entre otros.
-Uno de los sistemas que permite dicho uso es [etcd](https://etcd.io/). Y una de las librerías que inplementa su API(más bien etcd3 que es una interfaz de alto nivel que permite la interación con etcd) es [etcd3](https://www.npmjs.com/package/etcd3).
+Uno de los sistemas que permite dicho uso es [etcd](https://etcd.io/). Y una de las librerías que implementa su API(más bien etcd3 que es una interfaz de alto nivel que permite la interacción con etcd) es [etcd3](https://www.npmjs.com/package/etcd3).
 La librería está implementada por Microsoft lo cual es positivo puesto que lo usa en sus propios proyectos y es más difícil que se abandone a largo plazo.
 Además, tiene muy pocos issues y PR abiertos y todos los PR están relacionados con la actualización de dependencias mientras que ningún issue está relacionado con bugs sino con enriquecimientos y otros.
 Queda fuera de las miras de la asignatura la configuración de un servidor pero se ha simulado su funcionamiento en la aplicación. Para hacerlo funcionar correctamente bastaría con instanciar el objeto con los valores de un puerto de un servidor correctamente configurado.
