@@ -90,3 +90,17 @@ El primero es que el estado de mantenimiento de dotenv es mucho mejor que el de 
 El segundo es que, mientras que dotenv no tiene dependencias, nconf tiene 4. Cuantas menos dependencias la librería mejor porque menos dependencias tendrá el proyecto.
 El tercero es que dotenv tiene el soporte para tipos totalmente integrado mientras que nconfg las tiene en un paquete a parte(esto es un detalle).
 
+
+## REST API Framework
+
+Requisistos:
+1. Flexible: Llegado este punto el proyecto ya está estructurado. El framework ha de tener la capacidad de adaptarse a la estructura actual del proyecto.
+2. Eficiente: Ha de ser capaz de gestionar suficientes peticiones por unidad de tiempo.
+3. Integrable: Fundamentalmente con las herramientas escogidas para test y logging
+4. Soporte para tipos de typescript
+
+Se han considerado los siguientes frameworks: [nest](https://www.npmjs.com/package/@nestjs/core), [fastify](https://www.npmjs.com/package/fastify), [hapi](https://www.npmjs.com/package/@hapi/hapi), [restify](https://www.npmjs.com/package/restify).
+Nest es la alternativa más popular. Se descartó este framework porque está encerrada dentro de un conjunto de herramientas que incentivan su uso conjunto promoviendo una estructura determinada para la aplicación que ya no es alterable por lo tanto no verifica 1.
+Fastify es la alternativa más eficaz de las consideradas según sus propios benchmark que se pueden encontrar en https://github.com/fastify/benchmarks. Su estado de mantenimiento es muy bueno y se integra bien con el logger elegido pero se integra muy mal con la librería de test luego no termina de verificar 3.
+Restify fue descartado porque, a pesar de cumplir todos los requisitos tiene un estado de conservación relativamente malo lo cual convierte su elección en un tanto arriesgada.
+Por último está hapi que es la librería elegida. Verifica todos los requisitos y, además, tiene un estado de conservación bueno y una documentación muy clara y concisa.
