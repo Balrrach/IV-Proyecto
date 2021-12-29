@@ -6,7 +6,7 @@ import * as fs from 'fs';
 class Controller {
 	public Ready: Promise<any>;
 	public config: Config = new Config();
-	private logger: any;
+	private logger: pino.Logger = pino();
 
 	constructor(config?: Config){
 		if(config){
