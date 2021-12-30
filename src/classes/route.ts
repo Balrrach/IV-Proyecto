@@ -1,9 +1,8 @@
 import { Location } from './location';
 import { Order } from './order'
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Route'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Route'})
 
 
 class Route {
@@ -14,9 +13,7 @@ class Route {
 		this.route = route;
 		this.orders = orders;
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Route object correctly instantiated");
-		})
+		logger.info("Route object correctly instantiated");
 	}
 
 	getDestinations(): Location[] {

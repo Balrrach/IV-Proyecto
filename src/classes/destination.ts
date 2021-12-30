@@ -1,8 +1,7 @@
 import { Location } from './location'
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Destination'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Destination'})
 
 
 class Destination extends Location {
@@ -20,9 +19,7 @@ class Destination extends Location {
 		this.letter = letter;
 		this.customerName = customerName;
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Destination object correctly instantiated");
-		})
+		logger.info("Destination object correctly instantiated");
 	}
 
 	deliveryManMessage(){}
