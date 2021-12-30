@@ -1,9 +1,8 @@
 import { Destination } from './destination';
 import { Command } from './command';
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Order'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Order'})
 
 
 class Order {
@@ -24,9 +23,7 @@ class Order {
 		this.commands = commands;
 		this.destination = destination;
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Object correctly instantiated");
-		})
+		logger.info("Object correctly instantiated");
 	}
 
 

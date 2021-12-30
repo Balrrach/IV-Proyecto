@@ -1,26 +1,24 @@
 import { Config } from "./config";
 import { pino } from 'pino';
 import * as fs from 'fs';
+import { connect } from 'http2';
 
 
 class Controller {
-	public Ready: Promise<any>;
-	public config: Config = new Config();
+	private static instance: Controller;
+
+	public config: Config = Config.getInstance();
 	private logger: pino.Logger = pino();
 
-	constructor(config?: Config){
+	private constructor(config?: Config){
 		if(config){
 			this.config = config;
 		}
 
-		this.Ready = Promise.all([
-			this.config.Ready.then(() => {
-				this.createLogger();
-			})
-		])
+		this.createLogger();
 	}
 
-	async createLogger(){
+	createLogger(){
 		let logDir = this.config.getLogDir();
 		let logFile = this.config.getLogFile();
 		let logRoute = logDir + logFile;
@@ -34,6 +32,14 @@ class Controller {
 		this.logger = pino(dest);
 	}
 
+	public static getInstance(): Controller {
+		if (!Controller.instance) {
+			Controller.instance = new Controller();
+		}
+
+		return Controller.instance;
+	}
+
 
 	getLogger(): any {
 		return this.logger;
@@ -41,5 +47,4 @@ class Controller {
 }
 
 
-const controller = new Controller();
-export { controller }
+export { Controller }

@@ -3,7 +3,7 @@ import{ DeliveryMan } from './classes/delivery_man';
 import { loadRestaurants } from './read_files';
 import { Restaurant } from './classes/restaurant';
 import { Product } from './classes/product'
-import { controller } from './controller'
+import { Controller } from './controller'
 
 
 // Read locations

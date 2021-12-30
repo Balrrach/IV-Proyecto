@@ -1,7 +1,6 @@
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Product'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Product'})
 
 
 class Product {
@@ -23,9 +22,7 @@ class Product {
 		if(ID > 0)
 			this.ID = ID;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("ID has to be strictly positive")
-			})
+			logger.error("ID has to be strictly positive")
 			throw new Error("ID has to be strictly positive");
 		}
 	}
@@ -34,9 +31,7 @@ class Product {
 		if(name.length > 0)
 			this.name = name;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("Name can't be empty")
-			})
+			logger.error("Name can't be empty")
 			throw new Error("Name can't be empty");
 		}
 	}
@@ -45,9 +40,7 @@ class Product {
 		if(weight > 0)
 			this.weight = weight;
 		else{
-		loggerPromise.then(loggerReady => {
-			loggerReady.error("Weight has to be strictly positive")
-		})
+			logger.error("Weight has to be strictly positive")
 			throw new Error("Weight has to be strictly positive");
 		}
 	}
@@ -57,9 +50,7 @@ class Product {
 		if(price > 0)
 			this.price = price;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("Price has to be strictly positive")
-			})
+			logger.error("Price has to be strictly positive")
 			throw new Error("Price has to be strictly positive");
 		}
 	}
@@ -68,9 +59,7 @@ class Product {
 		if(estimatedRemainingTime> 0)
 			this.estimatedRemainingTime= estimatedRemainingTime;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("Estimated remaining time has to be strictly positive")
-			})
+			logger.error("Estimated remaining time has to be strictly positive")
 			throw new Error("Estimated remaining time has to be strictly positive");
 		}
 	}
@@ -82,9 +71,7 @@ class Product {
 		this.processPrice(price);
 		this.processEstimatedRemaningTime(estimatedRemainingTime);
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Object correctly instantiated")
-		})
+		logger.info("Object correctly instantiated")
 	}
 
 	getID(): number {

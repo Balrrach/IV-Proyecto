@@ -3,10 +3,9 @@ import { Restaurant } from './restaurant';
 import { Order } from './order';
 import { Route } from './route';
 import { DeliveryMan } from './delivery_man';
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Manager'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Manager'})
 
 
 class Manager {
@@ -17,18 +16,14 @@ class Manager {
   constructor(restaurants: Restaurant[] = []) {
 	  this.restaurants = restaurants;
 
-	  loggerPromise.then(loggerReady => {
-		  loggerReady.info("Object correctly instantiated");
-	  })
+	  logger.info("Object correctly instantiated");
   }
 
 
   addRestaurant(restaurant: Restaurant) {
 	  this.restaurants.push(restaurant);
 
-	  loggerPromise.then(loggerReady => {
-		  loggerReady.info("Restaurant correctly added");
-	  })
+	  logger.info("Restaurant correctly added");
   }
 
   removeRestaurant(restaurant: Restaurant) {
@@ -37,9 +32,7 @@ class Manager {
 		  this.restaurants.splice(index, 1);
 	  }
 	  else{
-		  loggerPromise.then(loggerReady => {
-			  loggerReady.error("Tried to delete inexistant restaurant", restaurant);
-		  })
+		  logger.error("Tried to delete inexistant restaurant", restaurant);
 		  throw new Error("Tried to delete inexistant restaurant");
 	  }
   }
