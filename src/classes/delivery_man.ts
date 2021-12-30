@@ -1,9 +1,8 @@
 import { Order } from './order';
 import { Route } from './route';
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'DeliveryMan'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'DeliveryMan'})
 
 
 class DeliveryMan {
@@ -24,9 +23,7 @@ class DeliveryMan {
 		if(name.length > 0)
 			this.name = name;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("Name can't be empty");
-			})
+			logger.error("Name can't be empty");
 			throw new Error("Name can't be empty");
 		}
 	}
@@ -37,9 +34,7 @@ class DeliveryMan {
 		this.coordinates = coordinates;
 		this.maximumWeight = maximumWeight;
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("DeliveryMan object correctly instantiated");
-		})
+		logger.info("DeliveryMan object correctly instantiated");
 	}
 
 

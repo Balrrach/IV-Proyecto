@@ -1,9 +1,8 @@
 import { Product } from './product'; 
 import { Restaurant } from './restaurant'
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Command'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Command'})
 
 
 enum State {
@@ -35,9 +34,7 @@ class Command {
 		else
 			this.remainingTime = remainingTime;
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Command object correctly instantiated")
-		})
+		logger.info("Command object correctly instantiated")
 	}
 
 

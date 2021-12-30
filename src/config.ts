@@ -3,54 +3,47 @@ require('dotenv').config({ path:'./config/configuration.env'})
 
 
 class Config {
-	public Ready: Promise<any>;
-	private logDir: string = ''; 
-	private logFile: string = '';
+	private static instance: Config;
+	public ready: Promise<any>;
+
+	private logDir: string = 'tmp/logs/'; 
+	private logFile: string = 'logs.json';
 	private client = new Etcd3();
 
-	readonly defaultLogDir: string = '/tmp/logs/'
-	readonly defaultLogFile: string = 'logs.json'
-
-	constructor(defaultLogDir?: string, defaultLogFile?: string){
+	private constructor(defaultLogDir?: string, defaultLogFile?: string){
 		if(defaultLogDir)
-			this.defaultLogDir = defaultLogDir;
+			this.logDir = defaultLogDir;
 		if(defaultLogFile)
-			this.defaultLogFile = defaultLogFile;
+			this.logFile = defaultLogFile;
 
-		this.Ready = Promise.all([
-			this.readLogDir().then(res => { this.logDir = res; }),
-			this.readLogFile().then(res => { this.logFile = res; }),
+		this.ready = Promise.all([
+			this.setLogDir(),
+			this.setLogFile(),
 		])
 	}
 
+	public static getInstance(): Config {
+		if (!Config.instance) {
+			Config.instance = new Config();
+		}
 
-	async readLogDir() {
-		let serverLogDir = await this.client.get('LOG_DIRECTORY').string().catch(err => {});
+		return Config.instance;
+	}
+
+
+	async setLogDir() {
 		let environmentLogDir = process.env.LOG_DIR;
 
-		if(serverLogDir != null){
-			return serverLogDir;
-		}
-		else if(environmentLogDir != undefined){
-			return String(environmentLogDir);
-		}
-		else{
-			return this.defaultLogDir;
+		if(environmentLogDir != undefined){
+			this.logDir = String(environmentLogDir);
 		}
 	}
 
-	async readLogFile() {
-		let serverLogFile = await this.client.get('LOG_FILE').string().catch(err => {});
+	async setLogFile() {
 		let environmentLogFile = process.env.LOG_FILE;
 
-		if(serverLogFile != null){
-			return serverLogFile;
-		}
-		else if(environmentLogFile!= undefined){
-			return String(environmentLogFile);
-		}
-		else{
-			return this.defaultLogFile;
+		if(environmentLogFile!= undefined){
+			this.logFile = String(environmentLogFile);
 		}
 	}
 

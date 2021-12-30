@@ -1,7 +1,6 @@
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Location'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Location'})
 
 
 class Location {
@@ -10,9 +9,7 @@ class Location {
 	constructor(coordinates: [number, number, number]) {
 		this.coordinates = coordinates;
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Location object correctly instantiated");
-		})
+		logger.info("Location object correctly instantiated");
 	}
 
 

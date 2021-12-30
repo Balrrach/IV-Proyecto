@@ -1,9 +1,8 @@
 import { Location } from './location'
 import { Product } from './product'; 
-import { controller } from '../controller'
-const loggerPromise = controller.Ready.then(() => {
-	return controller.getLogger().child({ module: 'Restaurant'})
-})
+import { Controller } from '../controller'
+
+const logger = (Controller.getInstance()).getLogger().child({ module: 'Restaurant'})
 
 
 class Restaurant extends Location {
@@ -15,9 +14,7 @@ class Restaurant extends Location {
 		if(name.length > 0)
 			this.name = name;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("Restaurants cant have an empty name")
-			})
+			logger.error("Restaurants cant have an empty name")
 			throw new Error("Restaurants cant have an empty name")
 		}
 	}
@@ -26,9 +23,7 @@ class Restaurant extends Location {
 		if(products.length > 0)
 			this.products = products;
 		else{
-			loggerPromise.then(loggerReady => {
-				loggerReady.error("Restaurants need to have, at least, one associated product")
-			})
+			logger.error("Restaurants need to have, at least, one associated product")
 			throw new Error("Restaurants need to have, at least, one associated product")
 		}
 	}
@@ -38,9 +33,7 @@ class Restaurant extends Location {
 		this.processName(name);
 		this.processPoducts(products);
 
-		loggerPromise.then(loggerReady => {
-			loggerReady.info("Restaurant object correctly instantiated");
-		})
+		logger.info("Restaurant object correctly instantiated");
 	}
 
 	getName(): string {
