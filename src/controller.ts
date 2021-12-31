@@ -10,15 +10,14 @@ class Controller {
 	public config: Config = Config.getInstance();
 	private logger: pino.Logger = pino();
 
-	private constructor(config?: Config){
-		if(config){
-			this.config = config;
-		}
-
-		this.createLogger();
+	private constructor(logger?: pino.Logger){
+		if(logger)
+			this.logger = logger;
+		else
+			this.createLogger();
 	}
 
-	createLogger(){
+	private createLogger(){
 		let logDir = this.config.getLogDir();
 		let logFile = this.config.getLogFile();
 		let logRoute = logDir + logFile;
@@ -41,7 +40,7 @@ class Controller {
 	}
 
 
-	getLogger(): any {
+	public getLogger(): any {
 		return this.logger;
 	}
 }
