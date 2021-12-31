@@ -11,21 +11,11 @@ class Controller {
 	private logger: pino.Logger = pino();
 	private server: Hapi.Server = Hapi.server();
 
-<<<<<<< HEAD
-	private constructor(config?: Config){
-		if(config){
-			this.config = config;
-		}
-
-		this.createLogger();
-		this.createServer();
-=======
 	private constructor(logger?: pino.Logger){
 		if(logger)
 			this.logger = logger;
 		else
 			this.createLogger();
->>>>>>> Objetivo-7
 	}
 
 	private createLogger(){
@@ -58,11 +48,7 @@ class Controller {
 	}
 
 
-<<<<<<< HEAD
 	public getLogger(): pino.Logger {
-=======
-	public getLogger(): any {
->>>>>>> Objetivo-7
 		return this.logger;
 	}
 

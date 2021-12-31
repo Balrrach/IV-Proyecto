@@ -1,10 +1,6 @@
 import { Etcd3 } from "etcd3";
-<<<<<<< HEAD
 import Hapi from '@hapi/hapi';
-require('dotenv').config({ path:'./config/configuration.env'})
-=======
 require('dotenv').config({ path:'./config/configuration_test.env'})
->>>>>>> Objetivo-7
 
 
 class Config {
@@ -16,24 +12,9 @@ class Config {
 	private serverPort: number = 3000;
 	private serverHost: string = 'localhost';
 
-<<<<<<< HEAD
-	private constructor(defaultLogDir?: string, defaultLogFile?: string){
-		if(defaultLogDir)
-			this.logDir = defaultLogDir;
-		if(defaultLogFile)
-			this.logFile = defaultLogFile;
-
-		this.ready = Promise.all([
-			this.setLogDir(),
-			this.setLogFile(),
-			this.setServerPort(),
-			this.setServerHost(),
-		])
-=======
 	private constructor(logDir?: string, logFile?: string){
 		this.setLogDir();
 		this.setLogFile();
->>>>>>> Objetivo-7
 	}
 
 	public static getInstance(): Config {
