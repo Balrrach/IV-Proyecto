@@ -21,13 +21,13 @@ server.route({
 });
 
 server.route({
-	method: 'PUT',
+	method: 'POST',
 	path: '/product',
 	handler: function(request, h) { product.createProduct(request, h) }
 });
 
 server.route({
-	method: 'POST',
+	method: 'PUT',
 	path: '/product',
 	handler: function(request, h) { product.updateProduct(request, h) }
 });

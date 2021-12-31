@@ -21,13 +21,13 @@ server.route({
 });
 
 server.route({
-	method: 'PUT',
+	method: 'POST',
 	path: '/restaurant',
 	handler: function(request, h) { restaurant.createRestaurant(request, h) }
 });
 
 server.route({
-	method: 'POST',
+	method: 'PUT',
 	path: '/restaurant',
 	handler: function(request, h) { restaurant.updateRestaurant(request, h) }
 });

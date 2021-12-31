@@ -15,7 +15,7 @@ server.route({
 });
 
 server.route({
-	method: 'PUT',
+	method: 'POST',
 	path: '/order',
 	handler: function(request, h) { order.createOrder(request, h) }
 });

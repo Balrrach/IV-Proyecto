@@ -9,13 +9,13 @@ const server: Hapi.Server = Controller.getInstance().getServer();
 
 
 server.route({
-	method: 'PUT',
+	method: 'POST',
 	path: '/deliveryMan',
 	handler: function(request, h) { deliveryMan.createDeliveryMan(request, h) }
 });
 
 server.route({
-	method: 'POST',
+	method: 'PUT',
 	path: '/deliveryMan',
 	handler: function(request, h) { deliveryMan.updateDeliveryMan(request, h) }
 });
