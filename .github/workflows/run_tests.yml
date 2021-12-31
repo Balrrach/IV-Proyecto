@@ -20,6 +20,4 @@ jobs:
       - name: Run tests in the container
         env:
           CONTAINER: 'balrrach/instant-eat:latest'
-          # CONTAINER: ${{ steps.meta.outputs.tags }}
-          # CONTAINER: ${{ steps.meta.outputs.labels }}
         run: docker run -t -v "`pwd`:/app/test" "${CONTAINER}"

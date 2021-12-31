@@ -2,6 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
 
+
 build/
 
 ### Node ###
@@ -78,9 +79,9 @@ web_modules/
 
 # dotenv environment variables file
 *.env
-.env
 .env.test
 .env.production
+!configuration_test.env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

@@ -1,18 +1,22 @@
 import { Etcd3 } from "etcd3";
+<<<<<<< HEAD
 import Hapi from '@hapi/hapi';
 require('dotenv').config({ path:'./config/configuration.env'})
+=======
+require('dotenv').config({ path:'./config/configuration_test.env'})
+>>>>>>> Objetivo-7
 
 
 class Config {
 	private static instance: Config;
-	public ready: Promise<any>;
 
-	private logDir: string = 'tmp/logs/'; 
+	private logDir: string = '/tmp/logs/'; 
 	private logFile: string = 'logs.json';
 	private client = new Etcd3();
 	private serverPort: number = 3000;
 	private serverHost: string = 'localhost';
 
+<<<<<<< HEAD
 	private constructor(defaultLogDir?: string, defaultLogFile?: string){
 		if(defaultLogDir)
 			this.logDir = defaultLogDir;
@@ -25,6 +29,11 @@ class Config {
 			this.setServerPort(),
 			this.setServerHost(),
 		])
+=======
+	private constructor(logDir?: string, logFile?: string){
+		this.setLogDir();
+		this.setLogFile();
+>>>>>>> Objetivo-7
 	}
 
 	public static getInstance(): Config {
@@ -36,7 +45,7 @@ class Config {
 	}
 
 
-	async setLogDir() {
+	private setLogDir() {
 		let environmentLogDir = process.env.LOG_DIR;
 
 		if(environmentLogDir != undefined){
@@ -44,7 +53,7 @@ class Config {
 		}
 	}
 
-	async setLogFile() {
+	private setLogFile() {
 		let environmentLogFile = process.env.LOG_FILE;
 
 		if(environmentLogFile!= undefined){
