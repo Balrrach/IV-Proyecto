@@ -1,6 +1,6 @@
 # REST API
 
-## Verbos HTTP utilizados:
+## Verbos HTTP utilizados
 
 | Verbo	| Descripción	|
 |---	|---		|
