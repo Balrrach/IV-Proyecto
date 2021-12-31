@@ -14,7 +14,7 @@
 ### Productos
 
 | Verbo	| URI		| Descripción						|
-|---	|---		|							|
+| ---	| ---		| ---							|
 | GET	| /product	| Obtención de todos los productos			|
 | GET	| /product/id	| Obtención del producto relacionado con la id		|
 | POST	| /product	| Creación de un nuevo producto				|
@@ -27,7 +27,7 @@ No se proporciona la funcionalidad relacionada con la eliminación de varios pro
 ### Restaurantes
 
 | Verbo	| URI		| Descripción						|
-|---	|---		|							|
+| ---	| ---		| ---							|
 | GET	| /restaurant	| Obtención de todos los restaurantes			|
 | GET	| /restaurant/id| Obtención del restaurante relacionado con la id	|
 | POST	| /restaurant	| Creación de un nuevo restaurante			|
@@ -40,7 +40,7 @@ No se proporciona la funcionalidad relacionada con la eliminación de varios res
 ### Repartidor
 
 | Verbo	| URI			| Descripción						|
-|---	|---			|							|
+| ---	| ---			| ---							|
 | POST	| /deliveryMan		| Creación de un nuevo repartidor			|
 | PUT	| /deliveryMan		| Actualización de un repartidor			|
 | DELETE| /deliveryMan/id	| Eliminación del repartidor relacionado con la id	|
@@ -52,7 +52,7 @@ No se proporciona la funcionalidad relacionada con la obtención de repartidores
 ### Pedido
 
 | Verbo	| URI		| Descripción						|
-|---	|---		|							|
+| ---	| ---		| ---							|
 | POST	| /order	| Creación de un nuevo restaurante			|
 | PUT	| /order	| Actualización de un restaurante			|
 | DELETE| /order/id	| Eliminación del restaurante relacionado con la id	|
