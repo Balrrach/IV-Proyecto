@@ -26,15 +26,10 @@
 	},
 	"homepage": "https://github.com/Balrrach/IV-Proyecto#readme",
 	"devDependencies": {
-<<<<<<< HEAD
 		"@hapi/hapi": "^20.2.1",
 		"@types/chai": "^4.2.22",
 		"@types/chai-as-promised": "^7.1.4",
 		"@types/hapi__hapi": "^20.0.10",
-=======
-		"@types/chai": "^4.2.22",
-		"@types/chai-as-promised": "^7.1.4",
->>>>>>> main
 		"@types/mocha": "^9.0.0",
 		"@types/node": "^16.11.6",
 		"@types/rewire": "^2.5.28",
