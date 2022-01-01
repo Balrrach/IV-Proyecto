@@ -1,8 +1,5 @@
 import { Product } from './product'; 
 import { Restaurant } from './restaurant'
-import { Controller } from '../controller'
-
-const logger = (Controller.getInstance()).getLogger().child({ module: 'Command'})
 
 
 enum State {
@@ -33,8 +30,6 @@ class Command {
 			this.remainingTime = product.getEstimatedRemainingTime() + restaurant.getDelay();
 		else
 			this.remainingTime = remainingTime;
-
-		logger.info("Command object correctly instantiated")
 	}
 
 

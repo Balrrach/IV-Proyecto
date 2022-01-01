@@ -15,8 +15,6 @@ class Manager {
 
   constructor(restaurants: Restaurant[] = []) {
 	  this.restaurants = restaurants;
-
-	  logger.info("Object correctly instantiated");
   }
 
 

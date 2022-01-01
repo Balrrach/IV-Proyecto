@@ -1,8 +1,5 @@
 import { Location } from './location';
 import { Order } from './order'
-import { Controller } from '../controller'
-
-const logger = (Controller.getInstance()).getLogger().child({ module: 'Route'})
 
 
 class Route {
@@ -12,8 +9,6 @@ class Route {
 	constructor(route: Location[] = [], orders: Order[] = []) {
 		this.route = route;
 		this.orders = orders;
-
-		logger.info("Route object correctly instantiated");
 	}
 
 	getDestinations(): Location[] {

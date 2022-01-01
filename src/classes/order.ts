@@ -1,8 +1,5 @@
 import { Destination } from './destination';
 import { Command } from './command';
-import { Controller } from '../controller'
-
-const logger = (Controller.getInstance()).getLogger().child({ module: 'Order'})
 
 
 class Order {
@@ -22,8 +19,6 @@ class Order {
 		this.generate_new_ID();
 		this.commands = commands;
 		this.destination = destination;
-
-		logger.info("Object correctly instantiated");
 	}
 
 
