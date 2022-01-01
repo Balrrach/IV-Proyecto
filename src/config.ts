@@ -12,7 +12,7 @@ class Config {
 	private serverPort: number = 3000;
 	private serverHost: string = 'localhost';
 
-	private constructor(logDir?: string, logFile?: string){
+	private constructor(){
 		this.setLogDir();
 		this.setLogFile();
 	}
