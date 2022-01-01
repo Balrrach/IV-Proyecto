@@ -5,10 +5,10 @@ require('dotenv').config({ path:'./config/configuration_test.env'})
 
 class Config {
 	private static instance: Config;
+	private client = new Etcd3();
 
 	private logDir: string = '/tmp/logs/'; 
 	private logFile: string = 'logs.json';
-	private client = new Etcd3();
 	private serverPort: number = 3000;
 	private serverHost: string = 'localhost';
 
