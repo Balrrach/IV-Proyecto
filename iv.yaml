@@ -6,3 +6,4 @@ automatizar:
 test: src/tests/location.test.ts
 CI: .github/workflows
 configuracion: src/config.ts
+framework: hapi
