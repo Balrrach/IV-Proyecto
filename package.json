@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -dr ./build ./tmp ../tmp",
-		"start": "npm run build && node --es-module-specifier-resolution=node build/index.js",
+		"start": "npm run build && node build/index.js",
 		"test": "mocha -r ts-node/register ./test/**/*.test.ts",
 		"docker-build": "docker build . -t instant-eat",
 		"docker-test": "npm run docker-build && docker run -t -v \"`pwd`:/app/test\" instant-eat",
@@ -19,7 +19,7 @@
 		"type": "git",
 		"url": "git+https://github.com/Balrrach/IV-Proyecto.git"
 	},
-	"author": "",
+	"author": "Balrrach",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/Balrrach/IV-Proyecto/issues"
