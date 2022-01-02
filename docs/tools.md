@@ -93,16 +93,21 @@ El tercero es que dotenv tiene el soporte para tipos totalmente integrado mientr
 
 ## REST API Framework
 
-Requisistos:
+#### Necesario:
 1. Flexible: Llegado este punto el proyecto ya está estructurado. El framework ha de tener la capacidad de adaptarse a la estructura actual del proyecto.
 2. Eficiente: Ha de ser capaz de gestionar suficientes peticiones por unidad de tiempo.
 3. Integrable: Fundamentalmente con las herramientas escogidas para test y logging
 4. Soporte para tipos de typescript
 
+#### Conveniente:
+1. Métodos Incorporables al Servidor: La capacidad de ligar ciertos métodos al servidor puede ser útil puesto que es una muy buena alternativa a importar un módulo de funciones auxiliares en todos sitios.
+2. Capacidad para Servir Contenido Estático: En ocasiones será necesario servir un simple archivo desde disco, es útil tener la capacidad para hacerlo.
+
+
 Se han considerado los siguientes frameworks: [nest](https://www.npmjs.com/package/@nestjs/core), [fastify](https://www.npmjs.com/package/fastify), [hapi](https://www.npmjs.com/package/@hapi/hapi), [restify](https://www.npmjs.com/package/restify).
 
 - Nest es la alternativa más popular. Nest es un proyecto apoyado por grandes multinacionales como Redhat y empresas como NX y Labster que tiene como objetivo resolver los problemas arquitectónicos frecuentes en las aplicaciones escritas en javascript/typescript: "... However, while plenty of superb libraries, helpers, and tools exist for Node (and server-side JavaScript), none of them effectively solve the main problem of - Architecture". Esto implica que las herramientas necesarias para construir el API están pensadas para usarse con el resto de las herramientas del proyecto pero sobre todo que hay que seguir la estructura de aplicación propuesta. Por lo tanto no verifica la tercera condición y ha sido descartado.
-- Fastify es la segunda alternativa más popular y la más novedosa. Esta librería esta centrada en la eficiencia siendo esta uno de sus principales atractivos; es la alternativa más eficiente de las consideradas según sus propios benchmark que se pueden encontrar en https://github.com/fastify/benchmarks. Su estado de mantenimiento es muy bueno y se integra bien con el logger elegido pero se integra muy mal con la librería de test luego no termina de verificar tercera condición. Ha sido descartada por este motivo y porque su novedad implica una falta de pluggins disponibles y de posible documentación de cara a la implementación de características sofisticadas.
+- Fastify es la sugunda alternativa más popular y la más novedosa. Esta librería esta centrada en la eficiencia siendo esta uno de sus principales atractivos; es la alternativa más eficiente de las consideradas según sus propios benchmark que se pueden encontrar en https://github.com/fastify/benchmarks. Su estado de mantenimiento es muy bueno y se integra bien con el logger y la librería de test escogidos. Por otra parte no verifica ninguna los requisitos convenientes y su novedad implica una falta de pluggins disponibles y de posible documentación de cara a la implementación de características sofisticadas. Además, la declaración de las rutas y sus llamadas no es uniforme. Por todas estas razones ha sido descartada.
 - Restify es la tercera de las alternativas consideradas. Es utilizada por grandes empresas/organizaciones como npm, netflix, pinterest o napster. La librería fue descartada porque, a pesar de cumplir todos los requisitos de la lista tiene un estado de conservación relativamente malo(76 issues de los cuales los últimos no han sido tan siquiera respondidos) lo cual convierte su elección en un tanto arriesgada.
-- Por último está hapi que, a pesar de ser la librería menos popular, es la elegida. Hapi se desarrollo gestionar Walmart durante el Black Friday y es utilizada por grandes empresas como Brave(web browser) y Beats. Verifica todos los requisitos y, además, tiene un estado de conservación bueno y una documentación muy clara y concisa que facilitan enormemente su uso.
+- Por último está hapi que, a pesar de ser la librería menos popular, es la elegida. Hapi se desarrollo gestionar Walmart durante el Black Friday y es utilizada por grandes empresas como Brave(web browser) y Beats. Verifica todos los requisitos necesarios y convenientes y, además, tiene un estado de conservación bueno y una documentación muy clara y concisa que facilitan enormemente su uso.
 
