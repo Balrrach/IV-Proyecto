@@ -28,7 +28,7 @@ server.route({
 
 server.route({
 	method: 'PUT',
-	path: '/restaurant',
+	path: '/restaurant/{id}',
 	handler: function(request, h) { restaurant.updateRestaurant(request, h) }
 });
 

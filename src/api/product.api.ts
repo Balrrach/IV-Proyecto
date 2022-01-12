@@ -28,7 +28,7 @@ server.route({
 
 server.route({
 	method: 'PUT',
-	path: '/product',
+	path: '/product/{id}',
 	handler: function(request, h) { product.updateProduct(request, h) }
 });
 

@@ -16,7 +16,7 @@ server.route({
 
 server.route({
 	method: 'PUT',
-	path: '/deliveryMan',
+	path: '/deliveryMan/{id}',
 	handler: function(request, h) { deliveryMan.updateDeliveryMan(request, h) }
 });
 
