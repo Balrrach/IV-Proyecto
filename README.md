@@ -16,5 +16,5 @@ Las tareas disponibles son las siguientes:
  - `npm run start`: Compila y ejecuta el programa
  - `npm run check`: Comprueba la correccion sintactica del programa completo
  - `npm run test`: Corre los tests
- - `npm run docker-build`: Actualiza las dependencias del contenedor docker
+ - `npm run docker-build`: Construye el contenedor de docker
  - `npm run docker-test`: Corre los test en el contenedor de docker

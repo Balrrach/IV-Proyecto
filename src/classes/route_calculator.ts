@@ -12,9 +12,7 @@ class RouteCalculator {
 	private deliveryMen: DeliveryMan[] = [];
 
 
-	constructor() {
-		logger.info("Object correctly instantiated");
-	}
+	constructor() {}
 
 
 	addDeliveryMan(deliveryMan: DeliveryMan) {}
@@ -34,7 +32,7 @@ class RouteCalculator {
 			result += (coor1[index] - coor2[index])**2;
 		})
 
-		// logger.info("Distance between " + coor1 + " and " + co)
+		logger.info("Distance between " + coor1 + " and " + coor2 + " is: " + result)
 		return result;
 	}
 }

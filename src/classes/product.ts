@@ -70,8 +70,6 @@ class Product {
 		this.processWeight(weight);
 		this.processPrice(price);
 		this.processEstimatedRemaningTime(estimatedRemainingTime);
-
-		logger.info("Object correctly instantiated")
 	}
 
 	getID(): number {

@@ -1,7 +1,4 @@
 import { Location } from './location'
-import { Controller } from '../controller'
-
-const logger = (Controller.getInstance()).getLogger().child({ module: 'Destination'})
 
 
 class Destination extends Location {
@@ -18,8 +15,6 @@ class Destination extends Location {
 		this.step = step;
 		this.letter = letter;
 		this.customerName = customerName;
-
-		logger.info("Destination object correctly instantiated");
 	}
 
 	deliveryManMessage(){}

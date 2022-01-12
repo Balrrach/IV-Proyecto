@@ -1,7 +1,7 @@
 import { Config } from "./config";
 import { pino } from 'pino';
+import Hapi from '@hapi/hapi';
 import * as fs from 'fs';
-import { connect } from 'http2';
 
 
 class Controller {
@@ -9,12 +9,11 @@ class Controller {
 
 	public config: Config = Config.getInstance();
 	private logger: pino.Logger = pino();
+	private server: Hapi.Server = Hapi.server();
 
-	private constructor(logger?: pino.Logger){
-		if(logger)
-			this.logger = logger;
-		else
-			this.createLogger();
+	private constructor(){
+		this.createLogger();
+		this.createServer();
 	}
 
 	private createLogger(){
@@ -31,6 +30,13 @@ class Controller {
 		this.logger = pino(dest);
 	}
 
+	private createServer(){
+		this.server = Hapi.server({
+			port: this.config.getServerPort(),
+			host: this.config.getServerHost(),
+		});
+	}
+
 	public static getInstance(): Controller {
 		if (!Controller.instance) {
 			Controller.instance = new Controller();
@@ -40,8 +46,12 @@ class Controller {
 	}
 
 
-	public getLogger(): any {
+	public getLogger(): pino.Logger {
 		return this.logger;
+	}
+
+	public getServer(): Hapi.Server {
+		return this.server;
 	}
 }
 

@@ -33,8 +33,6 @@ class DeliveryMan {
 		this.processName(name);
 		this.coordinates = coordinates;
 		this.maximumWeight = maximumWeight;
-
-		logger.info("DeliveryMan object correctly instantiated");
 	}
 
 

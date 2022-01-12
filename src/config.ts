@@ -1,15 +1,18 @@
 import { Etcd3 } from "etcd3";
+import Hapi from '@hapi/hapi';
 require('dotenv').config({ path:'./config/configuration_test.env'})
 
 
 class Config {
 	private static instance: Config;
+	private client = new Etcd3();
 
 	private logDir: string = '/tmp/logs/'; 
 	private logFile: string = 'logs.json';
-	private client = new Etcd3();
+	private serverPort: number = 3000;
+	private serverHost: string = 'localhost';
 
-	private constructor(logDir?: string, logFile?: string){
+	private constructor(){
 		this.setLogDir();
 		this.setLogFile();
 	}
@@ -38,6 +41,22 @@ class Config {
 			this.logFile = String(environmentLogFile);
 		}
 	}
+	
+	async setServerPort() {
+		let environmentServerPort= process.env.SERVER_PORT;
+
+		if(environmentServerPort != undefined){
+			this.serverPort = Number(environmentServerPort);
+		}
+	}
+
+	async setServerHost() {
+		let environmentServerHost = process.env.SERVER_HOST;
+
+		if(environmentServerHost != undefined){
+			this.serverHost = environmentServerHost;
+		}
+	}
 
 
 	public getLogDir(): string {
@@ -46,6 +65,14 @@ class Config {
 
 	public getLogFile(): string {
 		return this.logFile;
+	}
+
+	public getServerPort(): number {
+		return this.serverPort;
+	}
+
+	public getServerHost(): string {
+		return this.serverHost;
 	}
 }
 
